@@ -11,7 +11,7 @@ const HeaderComponent = () => {
 			py="20px"
 			px={8}
 			borderBottomWidth="1px"
-			borderBottomColor={Colors.GreyBorder}
+			borderBottomColor={Colors.Grey4}
 		>
 			<Text>Buscar Proyectos</Text>
 			<HeaderOptionsComponent />
