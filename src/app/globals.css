@@ -27,3 +27,22 @@ a {
 	color: inherit;
 	text-decoration: none;
 }
+
+@keyframes slideInBounce {
+	0% {
+		transform: translateX(-120%);
+	}
+	60% {
+		transform: translateX(2%);
+	}
+	80% {
+		transform: translateX(-0.5%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.slide-in-bounce {
+	animation: slideInBounce 1.5s ease-out forwards !important;
+}

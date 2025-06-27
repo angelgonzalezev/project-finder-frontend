@@ -1,0 +1,28 @@
+import { Colors } from "@/constants/colors";
+import { Span, Stack } from "@chakra-ui/react";
+
+interface ReferralBonusComponentProps {
+	referralBonus: number;
+}
+
+const ReferralBonusComponent = (props: ReferralBonusComponentProps) => {
+	const { referralBonus } = props;
+
+	return (
+		<Stack
+			flexDirection="row"
+			gap="6px"
+			alignItems="center"
+			bgColor={Colors.SurfaceGreen2}
+			color={Colors.TextGreen8}
+			px="8px"
+			py="6px"
+			borderRadius="6px"
+			w="fit-content"
+		>
+			<Span>€</Span>
+			<Span>¡Gana {`${referralBonus}`}€ por referir!</Span>
+		</Stack>
+	);
+};
+export default ReferralBonusComponent;

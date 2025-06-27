@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Project {
 	id: number;
 	title: string;
@@ -33,8 +32,8 @@ export interface ProjectFaq {
 }
 
 export interface ProjectBudget {
-	hourFrom?: any;
-	hourTo?: any;
+	hourFrom: number | null;
+	hourTo: number | null;
 	total: number | null;
 }
 
