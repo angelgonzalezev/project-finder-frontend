@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Provider } from "../components/ui/provider";
 import { Stack } from "@chakra-ui/react";
 import HeaderComponent from "@/components/HeaderComponent";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
+const gtPlanarRegularFont = localFont({
+	src: "../fonts/GT-Planar-Regular.otf",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +21,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${geistMono.variable}`}>
+			<body className={gtPlanarRegularFont.className}>
 				<Provider>
 					<Stack flex={1}>
 						<HeaderComponent />
