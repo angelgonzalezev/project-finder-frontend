@@ -10,7 +10,7 @@ export default function Home() {
 	const filteredProjects = allProjects;
 
 	return (
-		<Stack flex={1} px="40px" gap="40px">
+		<Stack flex={1} px="40px" gap="40px" mt="140px">
 			<FilterOptionsComponent />
 			{filteredProjects.map((project: Project) => (
 				<ProjectDetailsComponent project={project} key={project.id} />
