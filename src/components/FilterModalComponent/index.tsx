@@ -1,10 +1,10 @@
 import CustomModalComponent from "../CustomModalComponent";
 import { useState } from "react";
 import mockSpecialties from "@/mockData/mockSpecialties";
-import { FilterOption } from "@/types/filters";
+import { FilterOption, FilterType } from "@/types/filters";
 import InputFilterComponent from "./InputFilterComponent";
 import mockSkills from "@/mockData/mockSkills";
-import { FilterOperatorTypes, FilterType } from "./types";
+import { FilterNames, FilterOperatorTypes } from "./types";
 import mockCategories from "@/mockData/mockCategories";
 import mockIndustries from "@/mockData/mockIndustries";
 import OrderSelectorComponent from "./OrderSelectorComponent";
@@ -17,13 +17,14 @@ const filterInit = {
 interface FilterModalComponent {
 	open: boolean;
 	onClose: () => void;
+	onFilter: (e: { filters: FilterType[]; order: string | null }) => void;
 }
 const FilterModalComponent = (props: FilterModalComponent) => {
-	const { open, onClose } = props;
-	const [specialtyFilter, setSpecialtyFilter] = useState<FilterType>(filterInit);
-	const [skillFilter, setSkillFilter] = useState<FilterType>(filterInit);
-	const [categoryFilter, setCategoryFilter] = useState<FilterType>(filterInit);
-	const [industryFilter, setIndustryFilter] = useState<FilterType>(filterInit);
+	const { open, onClose, onFilter } = props;
+	const [specialtyFilter, setSpecialtyFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Specialties });
+	const [skillFilter, setSkillFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Skills });
+	const [categoryFilter, setCategoryFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Categories });
+	const [industryFilter, setIndustryFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Industries });
 	const [order, setOrder] = useState<string | null>(null);
 
 	const specialtyOptions = mockSpecialties as FilterOption[];
@@ -32,16 +33,24 @@ const FilterModalComponent = (props: FilterModalComponent) => {
 	const industryOptions = mockIndustries as FilterOption[];
 
 	const handleOnClose = () => {
-		setSpecialtyFilter(filterInit);
-		setSkillFilter(filterInit);
-		setCategoryFilter(filterInit);
-		setIndustryFilter(filterInit);
+		setSpecialtyFilter({ ...filterInit, name: FilterNames.Specialties });
+		setSkillFilter({ ...filterInit, name: FilterNames.Skills });
+		setCategoryFilter({ ...filterInit, name: FilterNames.Categories });
+		setIndustryFilter({ ...filterInit, name: FilterNames.Industries });
 		setOrder(null);
 		onClose();
 	};
 
+	const handleOnFilter = () => {
+		const filters = [specialtyFilter, skillFilter, categoryFilter, industryFilter].filter(
+			(item) => item.selectedFilters && item.selectedFilters.length > 0
+		);
+		onFilter({ filters, order });
+		onClose();
+	};
+
 	return (
-		<CustomModalComponent isOpen={open} onClose={handleOnClose} title="Filtrar Proyectos">
+		<CustomModalComponent isOpen={open} onClose={handleOnClose} onFilter={handleOnFilter} title="Filtrar Proyectos">
 			<InputFilterComponent
 				title="Especialidades"
 				options={specialtyOptions}

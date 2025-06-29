@@ -10,11 +10,6 @@ export const FilterOperatorTypes = {
 	Y: { id: 1, name: "y" },
 };
 
-export interface FilterType {
-	selectedFilters: FilterOption[];
-	operator: FilterOption[];
-}
-
 export enum RadioItemValues {
 	ASC = "ASC",
 	DESC = "DESC",
@@ -23,4 +18,11 @@ export enum RadioItemValues {
 export interface RadioItem {
 	label: string;
 	value: RadioItemValues;
+}
+
+export const enum FilterNames {
+	Specialties = "specialties",
+	Skills = "skills",
+	Categories = "categories",
+	Industries = "industries",
 }

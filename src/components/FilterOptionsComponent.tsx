@@ -6,8 +6,13 @@ import Image from "next/image";
 import ArrowIcon from "@/assets/icons/ArrowIcon.svg";
 import FilterIcon from "@/assets/icons/FilterIcon.svg";
 import FilterModalComponent from "./FilterModalComponent";
+import { FilterType } from "@/types/filters";
 
-const FilterOptionsComponent = () => {
+interface FilterOptionsCOmponentProps {
+	onFilter: (e: { filters: FilterType[]; order: string | null }) => void;
+}
+const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
+	const { onFilter } = props;
 	const { open, onOpen, onClose } = useDisclosure();
 
 	return (
@@ -32,7 +37,7 @@ const FilterOptionsComponent = () => {
 					publicación
 				</Text>
 			</HStack>
-			<FilterModalComponent open={open} onClose={onClose} />
+			<FilterModalComponent open={open} onClose={onClose} onFilter={onFilter} />
 		</Stack>
 	);
 };

@@ -11,11 +11,12 @@ import { Colors } from "@/constants/colors";
 interface CustomModalComponentProps {
 	isOpen: boolean;
 	onClose: () => void;
+	onFilter: () => void;
 	title: string;
 	children: React.ReactNode;
 }
 
-const CustomModalComponent = ({ isOpen, onClose, title, children }: CustomModalComponentProps) => {
+const CustomModalComponent = ({ isOpen, onClose, onFilter, title, children }: CustomModalComponentProps) => {
 	return (
 		<AnimatePresence>
 			{isOpen && (
@@ -37,7 +38,7 @@ const CustomModalComponent = ({ isOpen, onClose, title, children }: CustomModalC
 								<Button mt={6} onClick={onClose} colorScheme="blue" fontSize="16px" flex={1} color="red">
 									Eliminar Filtros
 								</Button>
-								<Button mt={6} onClick={() => null} fontSize="16px" bgColor={Colors.TextGreen8} color="white" flex={1}>
+								<Button mt={6} onClick={onFilter} fontSize="16px" bgColor={Colors.TextGreen8} color="white" flex={1}>
 									Filtrar
 								</Button>
 							</HStack>
