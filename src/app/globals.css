@@ -28,6 +28,10 @@ a {
 	text-decoration: none;
 }
 
+button {
+	background-color: white;
+}
+
 @keyframes slideInBounce {
 	0% {
 		transform: translateX(-120%);
