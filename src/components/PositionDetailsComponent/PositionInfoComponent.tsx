@@ -48,7 +48,7 @@ const PositionInfoComponent = (props: ProjectInformationProps) => {
 					skills={skills}
 				/>
 			</HStack>
-			<PositionButtonComponent />
+			<PositionButtonComponent projectId={project.id} />
 		</Stack>
 	);
 };
