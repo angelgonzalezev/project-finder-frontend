@@ -10,7 +10,7 @@ const PositionButtonComponent = () => {
 			alignItems="center"
 			justifyContent="center"
 			borderLeftWidth="1px"
-			borderLeftColor={Colors.Grey4}
+			borderLeftColor={Colors.AllGrey4}
 			cursor="pointer"
 		>
 			<NextImage src={ButtonIcon} alt="button icon" width={24} height={24} />

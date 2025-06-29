@@ -37,7 +37,7 @@ const PositionInfoComponent = (props: ProjectInformationProps) => {
 	const skills = getSelectedSkills(project.positions[0].skills, mockSkills);
 
 	return (
-		<Stack flexDir="row" key={project.id} borderWidth="1px" borderColor={Colors.Grey4} borderRadius="16px" gap={0}>
+		<Stack flexDir="row" key={project.id} borderWidth="1px" borderColor={Colors.AllGrey4} borderRadius="16px" gap={0}>
 			<HStack flex={1} p="24px">
 				<OrganizationLogoComponent projectOrganization={projectOrganization} />
 				<PositionInfoDetailsComponent

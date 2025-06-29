@@ -2,7 +2,7 @@ import { HStack } from "@chakra-ui/react";
 import Image from "next/image";
 import ChatIcon from "@/assets/icons/ChatIcon.svg";
 import BellIcon from "@/assets/icons/BellIcon.svg";
-import AvatarImageComponent from "../AvatarImageComponent";
+import AvatarImageComponent from "./AvatarImageComponent";
 
 const HeaderOptionsComponent = () => {
 	return (

@@ -1,5 +1,5 @@
 import { HStack, Text } from "@chakra-ui/react";
-import HeaderOptionsComponent from "./ui/HeaderOptionsComponent";
+import HeaderOptionsComponent from "./HeaderOptionsComponent";
 import { Colors } from "@/constants/colors";
 
 const HeaderComponent = () => {
@@ -11,7 +11,7 @@ const HeaderComponent = () => {
 			py="20px"
 			px={8}
 			borderBottomWidth="1px"
-			borderBottomColor={Colors.Grey4}
+			borderBottomColor={Colors.AllGrey4}
 		>
 			<Text>Buscar Proyectos</Text>
 			<HeaderOptionsComponent />
