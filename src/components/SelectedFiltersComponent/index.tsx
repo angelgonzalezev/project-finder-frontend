@@ -1,8 +1,8 @@
-import { Colors } from "@/constants/colors";
 import { FilterType } from "@/types/filters";
-import { Accordion, Span, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import { FilterNames } from "../FilterModalComponent/types";
 import FilterGroupRowComponent from "./FilterGroupRowComponent";
+import AccordionComponent from "../AccordionComponent/AccordionComponent";
 
 interface SelectedFiltersComponentProps {
 	filters: FilterType[];
@@ -23,33 +23,15 @@ const SelectedFiltersComponent = (props: SelectedFiltersComponentProps) => {
 	const industryOperator = industryFilters?.operator[0];
 
 	return (
-		<Accordion.Root multiple collapsible>
-			<Accordion.Item value={"a"} px="16px" py="12px" bgColor={Colors.SurfaceGreen2} borderRadius="sm">
-				<Accordion.ItemTrigger bgColor={Colors.SurfaceGreen2}>
-					<Span flex="1" fontStyle="italic">
-						Filtros aplicados
-					</Span>
-					<Accordion.ItemIndicator />
-				</Accordion.ItemTrigger>
-				<Accordion.ItemContent mt="16px">
-					<Accordion.ItemBody>
-						<Stack>
-							{specialtyFilters && (
-								<FilterGroupRowComponent groupFilters={specialtyFilters} operator={specialtyOperator} />
-							)}
-							{skillFilters && <FilterGroupRowComponent groupFilters={skillFilters} operator={skillOperator} />}
-							{categoryFilters && (
-								<FilterGroupRowComponent groupFilters={categoryFilters} operator={categoryOperator} />
-							)}
+		<AccordionComponent title="Filtros aplicados">
+			<Stack mt="16px">
+				{specialtyFilters && <FilterGroupRowComponent groupFilters={specialtyFilters} operator={specialtyOperator} />}
+				{skillFilters && <FilterGroupRowComponent groupFilters={skillFilters} operator={skillOperator} />}
+				{categoryFilters && <FilterGroupRowComponent groupFilters={categoryFilters} operator={categoryOperator} />}
 
-							{industryFilters && (
-								<FilterGroupRowComponent groupFilters={industryFilters} operator={industryOperator} />
-							)}
-						</Stack>
-					</Accordion.ItemBody>
-				</Accordion.ItemContent>
-			</Accordion.Item>
-		</Accordion.Root>
+				{industryFilters && <FilterGroupRowComponent groupFilters={industryFilters} operator={industryOperator} />}
+			</Stack>
+		</AccordionComponent>
 	);
 };
 export default SelectedFiltersComponent;

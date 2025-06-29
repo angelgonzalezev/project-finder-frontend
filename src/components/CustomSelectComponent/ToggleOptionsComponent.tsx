@@ -1,6 +1,5 @@
-import { Center, VStack } from "@chakra-ui/react";
-import Image from "next/image";
-import ChevronIcon from "@/assets/icons/ChevronIcon.svg";
+import { VStack } from "@chakra-ui/react";
+import ChevronIconComponent from "../ChevronIconComponent";
 
 interface ToggleOptionsComponentProps {
 	showOptions: boolean;
@@ -11,12 +10,8 @@ const ToggleOptionsComponent = (props: ToggleOptionsComponentProps) => {
 
 	return (
 		<VStack gap={0} cursor="pointer" onClick={() => setShowOptions(!showOptions)} alignSelf="end" justify="center">
-			<Center p={0} m={0} transform="rotate(180deg)">
-				<Image src={ChevronIcon} alt="chevron icon" />
-			</Center>
-			<Center>
-				<Image src={ChevronIcon} alt="chevron icon" />
-			</Center>
+			<ChevronIconComponent rotationDeg={180} />
+			<ChevronIconComponent />
 		</VStack>
 	);
 };

@@ -9,4 +9,5 @@ export enum Colors {
 	Green4 = "#6FBEB0",
 	SurfaceGreen2 = "#EDF7F6",
 	TextRed6 = "#CA4810",
+	SurfaceGrey0 = "#FFFFFF",
 }

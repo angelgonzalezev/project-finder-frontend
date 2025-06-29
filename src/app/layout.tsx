@@ -23,9 +23,11 @@ export default function RootLayout({
 		<html lang="en" suppressHydrationWarning>
 			<body className={gtPlanarRegularFont.className}>
 				<Provider>
-					<Stack flex={1}>
+					<Stack flex={1} pt="140px">
 						<HeaderComponent />
-						{children}
+						<Stack flex={1} px="40px" gap="40px">
+							{children}
+						</Stack>
 					</Stack>
 				</Provider>
 			</body>
