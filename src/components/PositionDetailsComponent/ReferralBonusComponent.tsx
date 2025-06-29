@@ -20,8 +20,12 @@ const ReferralBonusComponent = (props: ReferralBonusComponentProps) => {
 			borderRadius="6px"
 			w="fit-content"
 		>
-			<Span>€</Span>
-			<Span>¡Gana {`${referralBonus}`}€ por referir!</Span>
+			<Span fontSize="12px" lineHeight="16px">
+				€
+			</Span>
+			<Span fontSize="12px" lineHeight="16px">
+				¡Gana {`${referralBonus}`}€ por referir!
+			</Span>
 		</Stack>
 	);
 };
