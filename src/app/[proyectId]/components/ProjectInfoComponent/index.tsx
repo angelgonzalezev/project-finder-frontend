@@ -1,6 +1,7 @@
 import { Stack, Text } from "@chakra-ui/react";
 import InfoSectionComponent from "./InfoSectionComponent";
 import { Colors } from "@/constants/colors";
+import FaqComponent from "./FaqComponent";
 import { ProjectFaq } from "@/types/project";
 
 interface ProjectInfoComponentProps {
@@ -24,6 +25,10 @@ const ProjectInfoComponent = (props: ProjectInfoComponentProps) => {
 						<li key={index}>{goal}</li>
 					))}
 				</Stack>
+			</InfoSectionComponent>
+
+			<InfoSectionComponent title="Preguntas Frecuentes" isMain={true}>
+				<FaqComponent projectFaqs={projectFaqs} />
 			</InfoSectionComponent>
 		</Stack>
 	);

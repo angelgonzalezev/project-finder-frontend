@@ -2,7 +2,8 @@ import { FilterType } from "@/types/filters";
 import { Stack } from "@chakra-ui/react";
 import { FilterNames } from "../FilterModalComponent/types";
 import FilterGroupRowComponent from "./FilterGroupRowComponent";
-import AccordionComponent from "../AccordionComponent/AccordionComponent";
+import AccordionItemComponent from "../AccordionComponent/AccordionItemComponent";
+import AccordionRootComponent from "../AccordionComponent/AccordionRootComponent";
 
 interface SelectedFiltersComponentProps {
 	filters: FilterType[];
@@ -23,15 +24,17 @@ const SelectedFiltersComponent = (props: SelectedFiltersComponentProps) => {
 	const industryOperator = industryFilters?.operator[0];
 
 	return (
-		<AccordionComponent title="Filtros aplicados">
-			<Stack mt="16px">
-				{specialtyFilters && <FilterGroupRowComponent groupFilters={specialtyFilters} operator={specialtyOperator} />}
-				{skillFilters && <FilterGroupRowComponent groupFilters={skillFilters} operator={skillOperator} />}
-				{categoryFilters && <FilterGroupRowComponent groupFilters={categoryFilters} operator={categoryOperator} />}
+		<AccordionRootComponent collapsible={true}>
+			<AccordionItemComponent title="Filtros aplicados">
+				<Stack mt="16px">
+					{specialtyFilters && <FilterGroupRowComponent groupFilters={specialtyFilters} operator={specialtyOperator} />}
+					{skillFilters && <FilterGroupRowComponent groupFilters={skillFilters} operator={skillOperator} />}
+					{categoryFilters && <FilterGroupRowComponent groupFilters={categoryFilters} operator={categoryOperator} />}
 
-				{industryFilters && <FilterGroupRowComponent groupFilters={industryFilters} operator={industryOperator} />}
-			</Stack>
-		</AccordionComponent>
+					{industryFilters && <FilterGroupRowComponent groupFilters={industryFilters} operator={industryOperator} />}
+				</Stack>
+			</AccordionItemComponent>
+		</AccordionRootComponent>
 	);
 };
 export default SelectedFiltersComponent;
