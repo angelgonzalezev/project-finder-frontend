@@ -2,19 +2,21 @@ import SearchBarComponent from "./components/SearchBarComponent";
 import ProjectBannerComponent from "./components/ProjectBannerComponent";
 import mockProjects from "@/mockData/mockProjects";
 import ProjectInfoComponent from "./components/ProjectInfoComponent";
-import { Box } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
+import ProjectProfilesComponent from "./components/ProjectProfilesComponent";
 
 const page = () => {
 	const mockProject = mockProjects[0];
 
 	const projectDescription = mockProject.description;
-
 	const projectGoals = mockProject.goals;
-
 	const projectFaqs = mockProject.faqs;
+	const projectOrganization = mockProject.organization;
+	const projectResponsable = mockProject.projectLeader;
+	const projectPositions = mockProject.positions;
 
 	return (
-		<Box>
+		<Stack gap="40px">
 			<SearchBarComponent />
 			<ProjectBannerComponent
 				title={"Crea un CRM personalizado para pymes"}
@@ -30,7 +32,12 @@ const page = () => {
 				projectGoals={projectGoals}
 				projectFaqs={projectFaqs}
 			/>
-		</Box>
+			<ProjectProfilesComponent
+				projectOrganization={projectOrganization}
+				projectResponsable={projectResponsable}
+				projectPositions={projectPositions}
+			/>
+		</Stack>
 	);
 };
 export default page;

@@ -16,7 +16,7 @@ interface ProjectBannerComponentProps {
 const ProjectBannerComponent = (props: ProjectBannerComponentProps) => {
 	const { title, category, subCategory, startDate, totalHours, estimatedBudget, positions } = props;
 	return (
-		<Stack py="24px" px="40px" bgColor={Colors.TextGreen8} borderRadius="md" gap="8px" mt="40px">
+		<Stack py="24px" px="40px" bgColor={Colors.TextGreen8} borderRadius="md" gap="8px">
 			<HStack justifyContent="space-between">
 				<Text fontSize="24px" lineHeight="140%" color="white">
 					{title}
