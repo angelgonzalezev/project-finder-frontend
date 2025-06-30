@@ -29,8 +29,6 @@ export default function Home() {
 		fetchProjects();
 	}, []);
 
-	console.log("🚀 ~ Home ~ filteredProjects:", projects);
-
 	return (
 		<Fragment>
 			<FilterOptionsComponent onFilter={setFilters} />
