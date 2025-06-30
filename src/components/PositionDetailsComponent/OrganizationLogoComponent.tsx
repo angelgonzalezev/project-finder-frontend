@@ -17,16 +17,7 @@ const OrganizationLogoComponent = (props: OrganizationLogoComponentProps) => {
 				borderRadius="6px"
 				objectFit="contain"
 			/>
-			<Text
-				fontSize="12px"
-				lineHeight="16px"
-				color="textGrey6"
-				mt="8px"
-				maxWidth="82px"
-				whiteSpace="normal"
-				wordBreak="break-word"
-				textAlign="center"
-			>
+			<Text textStyle="regularXs" color="textGrey6" mt="8px" maxWidth="82px" textAlign="center">
 				{projectOrganization.name}
 			</Text>
 		</VStack>

@@ -13,14 +13,12 @@ const TagComponent = (props: TagComponentProps) => {
 	return (
 		<Center
 			key={key}
+			textStyle="regularXs"
 			px="8px"
 			py="6px"
 			borderRadius="6px"
 			bgColor={bgColor}
 			color="allGrey9"
-			fontSize="12px"
-			lineHeight="16px"
-			letterSpacing="0px"
 			gap="6px"
 		>
 			{icon && <Image src={icon} alt="design icon" height={12} width={12} />}

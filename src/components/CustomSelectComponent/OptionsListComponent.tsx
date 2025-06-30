@@ -24,7 +24,7 @@ const OptionsListComponent = (props: OptionsListComponentProps) => {
 			<Box as="ul">
 				{filteredOptions.map((opt: FilterOption) => (
 					<Box key={opt.id} px={4} py={2} _hover={{ bg: "gray.100", cursor: "pointer" }} onClick={() => onSelect(opt)}>
-						<Text>{opt.name}</Text>
+						<Text textStyle="regularSm">{opt.name}</Text>
 					</Box>
 				))}
 			</Box>

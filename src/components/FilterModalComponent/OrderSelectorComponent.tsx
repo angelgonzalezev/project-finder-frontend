@@ -15,11 +15,11 @@ const OrderSelectorComponent = (props: OrderSelectorComponentProps) => {
 	const { value, setValue } = props;
 	return (
 		<Box>
-			<Text fontWeight="bold" mb={2}>
+			<Text textStyle="regularMd" mb={2}>
 				Ordenar por
 			</Text>
 			<RadioGroup.Root mt="16px" variant="solid" value={value} onValueChange={(e) => setValue(e.value)}>
-				<Stack gap="8px">
+				<Stack gap="8px" textStyle="regularSm">
 					{items.map((item) => (
 						<RadioGroup.Item key={item.value} value={item.value}>
 							<RadioGroup.ItemHiddenInput />

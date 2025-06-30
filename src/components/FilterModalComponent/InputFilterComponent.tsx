@@ -17,7 +17,7 @@ const InputFilterComponent = (props: InputFilterComponentProps) => {
 	const filterOptions = filterTypeOptions;
 	return (
 		<Stack gap="6px">
-			<Text>{title}</Text>
+			<Text textStyle="regularMd">{title}</Text>
 			<HStack flex={1} justify="space-between">
 				<CustomSelectComponent
 					handleSelect={setSelectedOptions}

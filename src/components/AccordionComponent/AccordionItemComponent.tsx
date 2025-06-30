@@ -1,13 +1,13 @@
-import { Colors } from "@/constants/colors";
 import { Accordion, Span } from "@chakra-ui/react";
 
 interface AccordionItemComponentProps {
 	title: string;
 	children: React.ReactNode;
 	index?: number;
+	isFaq?: boolean;
 }
 const AccordionItemComponent = (props: AccordionItemComponentProps) => {
-	const { title, children, index = 0 } = props;
+	const { title, children, index = 0, isFaq = false } = props;
 	return (
 		<Accordion.Item
 			key={index}
@@ -20,7 +20,7 @@ const AccordionItemComponent = (props: AccordionItemComponentProps) => {
 			mt={index !== 0 ? "12px" : 0}
 		>
 			<Accordion.ItemTrigger bgColor="surfaceGreen2" cursor="pointer">
-				<Span flex="1" fontStyle="italic">
+				<Span flex="1" textStyle={isFaq ? "regularXs" : "regularMd"} fontStyle="italic">
 					{title}
 				</Span>
 				<Accordion.ItemIndicator />

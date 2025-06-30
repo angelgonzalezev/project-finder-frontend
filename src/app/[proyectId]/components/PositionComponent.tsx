@@ -20,14 +20,14 @@ const PositionComponent = (props: PositionComponentProps) => {
 			minW="208px"
 		>
 			<Stack>
-				<Text fontSize="20px" lineHeight="140%" color="allGrey9">
+				<Text textStyle="headingXl" color="allGrey9">
 					{position.title}
 				</Text>
-				<Text fontSize="14px" lineHeight="20px" color="textGrey8">
+				<Text textStyle="regularSm" color="textGrey8">
 					{formatSkillList(position.skills)}
 				</Text>
 			</Stack>
-			<Button bgColor="allYellow6" color="allGrey9" borderRadius="md">
+			<Button textStyle="regularSm" bgColor="allYellow6" color="allGrey9" borderRadius="md">
 				Aplicar
 			</Button>
 		</Stack>

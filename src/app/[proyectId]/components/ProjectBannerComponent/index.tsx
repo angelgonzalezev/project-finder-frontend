@@ -17,12 +17,12 @@ const ProjectBannerComponent = (props: ProjectBannerComponentProps) => {
 	return (
 		<Stack py="24px" px="40px" bgColor="textGreen8" borderRadius="md" gap="8px">
 			<HStack justifyContent="space-between">
-				<Text fontSize="24px" lineHeight="140%" color="white">
+				<Text textStyle="headingXxl" color="white">
 					{title}
 				</Text>
 				<TagComponent label={category} bgColor="surfaceGreen2" icon={DesignIcon} />
 			</HStack>
-			<Text fontSize="18px" lineHeight="26px" color="white">
+			<Text textStyle="regularLg" color="white">
 				{subCategory}
 			</Text>
 			<ProjectBannerInfoComponent

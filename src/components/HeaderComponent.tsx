@@ -16,7 +16,7 @@ const HeaderComponent = () => {
 			bgColor="white"
 			zIndex={100}
 		>
-			<Text fontSize="18px" lineHeight="26px" color="PrimitivesBlack">
+			<Text textStyle="regularLg" color="PrimitivesBlack">
 				Buscar Proyectos
 			</Text>
 			<HeaderOptionsComponent />

@@ -1,4 +1,3 @@
-import { Colors } from "@/constants/colors";
 import { Span, Stack } from "@chakra-ui/react";
 
 interface ReferralBonusComponentProps {
@@ -20,12 +19,8 @@ const ReferralBonusComponent = (props: ReferralBonusComponentProps) => {
 			borderRadius="6px"
 			w="fit-content"
 		>
-			<Span fontSize="12px" lineHeight="16px">
-				€
-			</Span>
-			<Span fontSize="12px" lineHeight="16px">
-				¡Gana {`${referralBonus}`}€ por referir!
-			</Span>
+			<Span textStyle="regularXs">€</Span>
+			<Span textStyle="regularXs">¡Gana {`${referralBonus}`}€ por referir!</Span>
 		</Stack>
 	);
 };

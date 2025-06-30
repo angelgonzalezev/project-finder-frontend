@@ -1,4 +1,3 @@
-import { Colors } from "@/constants/colors";
 import { ProjectLeader, ProjectOrganization } from "@/types/project";
 import { Center, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import NextImage from "next/image";
@@ -24,9 +23,7 @@ const ResponsableComponent = (props: ResponsableComponentProps) => {
 			>
 				<HStack>
 					<Image src={projectOrganization.logo} h="24px" w="24px" alt="orgnization logo" borderRadius="4px" />
-					<Text fontSize="16px" lineHeight="22px">
-						{projectOrganization.name}
-					</Text>
+					<Text textStyle="regularMd">{projectOrganization.name}</Text>
 				</HStack>
 				<Center h="252px" w="252px" position="relative">
 					<NextImage
@@ -37,10 +34,10 @@ const ResponsableComponent = (props: ResponsableComponentProps) => {
 					/>
 				</Center>
 				<Stack>
-					<Text fontSize="20px" lineHeight="140%" color="allGrey9">
+					<Text textStyle="headingXl" color="allGrey9">
 						{projectResponsable.name} {projectResponsable.lastName}
 					</Text>
-					<Text fontSize="16px" lineHeight="22px" color="textGrey8">
+					<Text textStyle="regularMd" color="textGrey8">
 						Project Owner
 					</Text>
 				</Stack>

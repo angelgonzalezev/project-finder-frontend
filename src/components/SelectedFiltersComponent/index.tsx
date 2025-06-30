@@ -27,11 +27,26 @@ const SelectedFiltersComponent = (props: SelectedFiltersComponentProps) => {
 		<AccordionRootComponent collapsible={true}>
 			<AccordionItemComponent title="Filtros aplicados">
 				<Stack mt="16px">
-					{specialtyFilters && <FilterGroupRowComponent groupFilters={specialtyFilters} operator={specialtyOperator} />}
-					{skillFilters && <FilterGroupRowComponent groupFilters={skillFilters} operator={skillOperator} />}
-					{categoryFilters && <FilterGroupRowComponent groupFilters={categoryFilters} operator={categoryOperator} />}
-
-					{industryFilters && <FilterGroupRowComponent groupFilters={industryFilters} operator={industryOperator} />}
+					{specialtyFilters && (
+						<FilterGroupRowComponent
+							groupFilters={specialtyFilters}
+							operator={specialtyOperator}
+							title="Especialidades"
+						/>
+					)}
+					{skillFilters && (
+						<FilterGroupRowComponent groupFilters={skillFilters} operator={skillOperator} title="Habilidades" />
+					)}
+					{categoryFilters && (
+						<FilterGroupRowComponent
+							groupFilters={categoryFilters}
+							operator={categoryOperator}
+							title="Tipo de proyectos"
+						/>
+					)}
+					{industryFilters && (
+						<FilterGroupRowComponent groupFilters={industryFilters} operator={industryOperator} title="Industrias" />
+					)}
 				</Stack>
 			</AccordionItemComponent>
 		</AccordionRootComponent>

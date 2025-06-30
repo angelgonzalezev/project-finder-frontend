@@ -1,6 +1,5 @@
 import AccordionRootComponent from "@/components/AccordionComponent/AccordionRootComponent";
 import AccordionItemComponent from "@/components/AccordionComponent/AccordionItemComponent";
-import { Colors } from "@/constants/colors";
 import { ProjectFaq } from "@/types/project";
 import { Text } from "@chakra-ui/react";
 
@@ -12,8 +11,8 @@ const FaqComponent = (props: FaqComponentProps) => {
 	return (
 		<AccordionRootComponent>
 			{projectFaqs.map((faq: ProjectFaq, index: number) => (
-				<AccordionItemComponent title={faq.question} key={index} index={index}>
-					<Text fontSize="12px" lineHeight="16px" color="textGrey8" mt="8px">
+				<AccordionItemComponent title={faq.question} key={index} index={index} isFaq={true}>
+					<Text textStyle="regularXs" color="textGrey8" mt="8px">
 						{faq.answer}
 					</Text>
 				</AccordionItemComponent>

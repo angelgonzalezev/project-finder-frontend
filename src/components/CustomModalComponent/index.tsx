@@ -28,16 +28,16 @@ const CustomModalComponent = ({ isOpen, onClose, onFilter, title, children }: Cu
 						</HStack>
 						<Stack px="40px" pb="40px" w="100%">
 							{title && (
-								<Text fontSize="xl" fontWeight="bold" mb={4}>
+								<Text textStyle="headingXxl" mb={4}>
 									{title}
 								</Text>
 							)}
 							<Stack gap="24px">{children}</Stack>
 							<HStack>
-								<Button mt={6} onClick={onClose} fontSize="16px" flex={1} color="textRed6">
+								<Button mt={6} onClick={onClose} textStyle="regularMd" flex={1} color="textRed6">
 									Eliminar Filtros
 								</Button>
-								<Button mt={6} onClick={onFilter} fontSize="16px" bgColor="textGreen8" color="white" flex={1}>
+								<Button mt={6} onClick={onFilter} textStyle="regularMd" bgColor="textGreen8" color="white" flex={1}>
 									Filtrar
 								</Button>
 							</HStack>

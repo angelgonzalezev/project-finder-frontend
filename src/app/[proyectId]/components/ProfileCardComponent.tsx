@@ -8,7 +8,7 @@ const ProfileCardComponent = (props: ProfileCardComponentProps) => {
 	const { title, children } = props;
 	return (
 		<Stack gap="12px">
-			<Text fontSize="18px" lineHeight="26px" color="textGreen8">
+			<Text textStyle="regularLg" color="textGreen8">
 				{title}
 			</Text>
 			{children}

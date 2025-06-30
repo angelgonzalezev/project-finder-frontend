@@ -1,6 +1,5 @@
 "use client";
 
-import { Colors } from "@/constants/colors";
 import { HStack, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import Image from "next/image";
 import ArrowIcon from "@/assets/icons/ArrowIcon.svg";
@@ -19,7 +18,7 @@ const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
 		<Stack flexDirection="row" alignItems="center" justifyContent="flex-end">
 			<HStack w="fit-content" px="8px" cursor="pointer" onClick={onOpen}>
 				<Image src={FilterIcon} alt="button icon" width={16} height={16} />
-				<Text color="textGreen8" fontSize="12px">
+				<Text color="textGreen8" textStyle="regularXs">
 					Filtrar
 				</Text>
 			</HStack>
@@ -33,7 +32,7 @@ const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
 				cursor="pointer"
 			>
 				<Image src={ArrowIcon} alt="button icon" width={16} height={16} />
-				<Text color="textGreen8" fontSize="12px">
+				<Text color="textGreen8" textStyle="regularXs">
 					publicación
 				</Text>
 			</HStack>

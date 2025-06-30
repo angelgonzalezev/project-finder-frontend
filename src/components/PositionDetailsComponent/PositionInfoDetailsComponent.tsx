@@ -17,11 +17,9 @@ const PositionInfoDetailsComponent = (props: PositionInfoDetailsComponentProps) 
 
 	return (
 		<Stack gap="12px">
-			<Text fontSize="18px" lineHeight="26px">
-				{projectTitle}
-			</Text>
+			<Text textStyle="regularLg">{projectTitle}</Text>
 			<HStack>
-				<Text fontWeight="medium" fontSize="14px" lineHeight="20px" color="textGreen6">
+				<Text textStyle="regularSm" color="textGreen6">
 					<Span>{categoryName}</Span>
 					<Span mx="1"> | </Span>
 					{subcategoryName ? <Span>{subcategoryName}</Span> : null}
