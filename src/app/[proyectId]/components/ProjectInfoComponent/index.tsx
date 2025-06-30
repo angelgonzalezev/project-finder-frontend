@@ -13,13 +13,13 @@ const ProjectInfoComponent = (props: ProjectInfoComponentProps) => {
 	return (
 		<Stack gap={0}>
 			<InfoSectionComponent title="Descripción del Proyecto" isMain={true}>
-				<Text textStyle="regularSm" color="textGrey8">
+				<Text textStyle="fixedRegularSm" color="textGrey8">
 					{projectDescription}
 				</Text>
 			</InfoSectionComponent>
 
 			<InfoSectionComponent title="¿Cuáles son los objetivos y tareas a realizar?">
-				<Stack listStyleType="circle" textStyle="regularSm" color="textGrey8">
+				<Stack listStyleType="circle" textStyle="fixedRegularSm" color="textGrey8">
 					{projectGoals.map((goal: string, index: number) => (
 						<li key={index}>{goal}</li>
 					))}

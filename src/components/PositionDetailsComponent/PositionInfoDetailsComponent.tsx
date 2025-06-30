@@ -16,7 +16,7 @@ const PositionInfoDetailsComponent = (props: PositionInfoDetailsComponentProps) 
 	const { projectTitle, categoryName, subcategoryName, projectBudget, skills } = props;
 
 	return (
-		<Stack gap="12px">
+		<Stack gap={{ base: "6px", md: "12px" }}>
 			<Text textStyle="regularLg">{projectTitle}</Text>
 			<HStack>
 				<Text textStyle="regularSm" color="textGreen6">

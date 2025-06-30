@@ -9,13 +9,7 @@ interface InfoSectionComponentProps {
 const InfoSectionComponent = ({ title, children, isMain = false }: InfoSectionComponentProps) => {
 	return (
 		<Stack mt={isMain ? "40px" : "24px"}>
-			<Text
-				fontSize={isMain ? "18px" : "16px"}
-				lineHeight={isMain ? "26px" : "22px"}
-				textStyle={isMain ? "regularLg" : "regularMd"}
-			>
-				{title}
-			</Text>
+			<Text textStyle={isMain ? "fixedRegularLg" : "regularMd"}>{title}</Text>
 			{children}
 		</Stack>
 	);

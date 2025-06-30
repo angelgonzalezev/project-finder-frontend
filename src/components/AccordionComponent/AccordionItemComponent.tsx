@@ -20,7 +20,7 @@ const AccordionItemComponent = (props: AccordionItemComponentProps) => {
 			mt={index !== 0 ? "12px" : 0}
 		>
 			<Accordion.ItemTrigger bgColor="surfaceGreen2" cursor="pointer">
-				<Span flex="1" textStyle={isFaq ? "regularXs" : "regularMd"} fontStyle="italic">
+				<Span flex="1" textStyle={isFaq ? "fixedRegularXs" : "regularMd"} fontStyle="italic">
 					{title}
 				</Span>
 				<Accordion.ItemIndicator />

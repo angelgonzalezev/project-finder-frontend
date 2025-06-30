@@ -9,6 +9,7 @@ import { HStack, Stack } from "@chakra-ui/react";
 import OrganizationLogoComponent from "./OrganizationLogoComponent";
 import PositionInfoDetailsComponent from "./PositionInfoDetailsComponent";
 import PositionButtonComponent from "./PositionButtonComponent";
+import Link from "next/link";
 
 interface ProjectInformationProps {
 	project: Project;
@@ -36,19 +37,21 @@ const PositionInfoComponent = (props: ProjectInformationProps) => {
 	const skills = getSelectedSkills(project.positions[0].skills, mockSkills);
 
 	return (
-		<Stack flexDir="row" key={project.id} borderWidth="1px" borderColor="allGrey4" borderRadius="16px" gap={0}>
-			<HStack flex={1} p="24px">
-				<OrganizationLogoComponent projectOrganization={projectOrganization} />
-				<PositionInfoDetailsComponent
-					projectTitle={projectTitle}
-					categoryName={categoryName}
-					subcategoryName={subcategoryName}
-					projectBudget={projectBudget}
-					skills={skills}
-				/>
-			</HStack>
-			<PositionButtonComponent projectId={project.id} />
-		</Stack>
+		<Link href={`/${project.id}`} passHref>
+			<Stack flexDir="row" key={project.id} borderWidth="1px" borderColor="allGrey4" borderRadius="8px" gap={0}>
+				<HStack flex={1} p={{ base: "12px", md: "24px" }}>
+					<OrganizationLogoComponent projectOrganization={projectOrganization} />
+					<PositionInfoDetailsComponent
+						projectTitle={projectTitle}
+						categoryName={categoryName}
+						subcategoryName={subcategoryName}
+						projectBudget={projectBudget}
+						skills={skills}
+					/>
+				</HStack>
+				<PositionButtonComponent />
+			</Stack>
+		</Link>
 	);
 };
 export default PositionInfoComponent;

@@ -20,7 +20,9 @@ const ProjectBannerComponent = (props: ProjectBannerComponentProps) => {
 				<Text textStyle="headingXxl" color="white">
 					{title}
 				</Text>
-				<TagComponent label={category} bgColor="surfaceGreen2" icon={DesignIcon} />
+				<Stack display={{ base: "none", md: "block" }}>
+					<TagComponent label={category} bgColor="surfaceGreen2" icon={DesignIcon} />
+				</Stack>
 			</HStack>
 			<Text textStyle="regularLg" color="white">
 				{subCategory}

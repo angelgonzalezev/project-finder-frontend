@@ -1,5 +1,6 @@
 import { HStack, Text } from "@chakra-ui/react";
 import HeaderOptionsComponent from "./HeaderOptionsComponent";
+import MenuMobileComponent from "./MenuMobileComponent";
 
 const HeaderComponent = () => {
 	return (
@@ -8,7 +9,8 @@ const HeaderComponent = () => {
 			justifyContent="space-between"
 			w="100%"
 			py="20px"
-			px={8}
+			pr={{ base: "24px", md: "40px" }}
+			pl={{ base: "12px", md: "40px" }}
 			borderBottomWidth="1px"
 			borderBottomColor="allGrey4"
 			position="fixed"
@@ -16,9 +18,10 @@ const HeaderComponent = () => {
 			bgColor="white"
 			zIndex={100}
 		>
-			<Text textStyle="regularLg" color="PrimitivesBlack">
+			<Text textStyle="regularLg" color="PrimitivesBlack" display={{ base: "none", md: "block" }}>
 				Buscar Proyectos
 			</Text>
+			<MenuMobileComponent />
 			<HeaderOptionsComponent />
 		</HStack>
 	);

@@ -20,6 +20,7 @@ const TagComponent = (props: TagComponentProps) => {
 			bgColor={bgColor}
 			color="allGrey9"
 			gap="6px"
+			w="fit-content"
 		>
 			{icon && <Image src={icon} alt="design icon" height={12} width={12} />}
 			{label}

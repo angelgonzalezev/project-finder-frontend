@@ -1,5 +1,5 @@
 import { ProjectLeader, ProjectOrganization, ProjectPosition } from "@/types/project";
-import { HStack } from "@chakra-ui/react";
+import { HStack, Stack } from "@chakra-ui/react";
 import PositionComponent from "./PositionComponent";
 import ProfileCardComponent from "./ProfileCardComponent";
 import ResponsableComponent from "./ResponsableComponent";
@@ -12,7 +12,7 @@ interface ProjectProfilesComponentProps {
 const ProjectProfilesComponent = (props: ProjectProfilesComponentProps) => {
 	const { projectPositions, projectOrganization, projectResponsable } = props;
 	return (
-		<HStack alignItems="start">
+		<Stack flexDirection="row" alignItems="start" wrap="wrap">
 			<ProfileCardComponent title="Responsable">
 				<ResponsableComponent projectOrganization={projectOrganization} projectResponsable={projectResponsable} />
 			</ProfileCardComponent>
@@ -23,7 +23,7 @@ const ProjectProfilesComponent = (props: ProjectProfilesComponentProps) => {
 					))}
 				</HStack>
 			</ProfileCardComponent>
-		</HStack>
+		</Stack>
 	);
 };
 export default ProjectProfilesComponent;

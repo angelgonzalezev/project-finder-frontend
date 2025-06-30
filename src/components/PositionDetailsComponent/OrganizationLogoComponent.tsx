@@ -8,7 +8,7 @@ interface OrganizationLogoComponentProps {
 const OrganizationLogoComponent = (props: OrganizationLogoComponentProps) => {
 	const { projectOrganization } = props;
 	return (
-		<VStack>
+		<VStack gap="8px">
 			<Image
 				src={projectOrganization.logo}
 				w="82px"
@@ -17,7 +17,7 @@ const OrganizationLogoComponent = (props: OrganizationLogoComponentProps) => {
 				borderRadius="6px"
 				objectFit="contain"
 			/>
-			<Text textStyle="regularXs" color="textGrey6" mt="8px" maxWidth="82px" textAlign="center">
+			<Text textStyle={{ base: "regularXxs", md: "regularXs" }} color="textGrey6" maxWidth="82px" textAlign="center">
 				{projectOrganization.name}
 			</Text>
 		</VStack>

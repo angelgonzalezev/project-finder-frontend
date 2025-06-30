@@ -8,7 +8,7 @@ interface PositionSkillsComponentProps {
 const PositionSkillsComponent = (props: PositionSkillsComponentProps) => {
 	const { skills } = props;
 	return (
-		<HStack>
+		<HStack wrap="wrap">
 			{skills.map((skill: Skill) => (
 				<TagComponent key={skill.id} label={skill.name} bgColor="allGrey2" />
 			))}

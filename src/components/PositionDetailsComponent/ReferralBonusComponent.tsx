@@ -18,9 +18,10 @@ const ReferralBonusComponent = (props: ReferralBonusComponentProps) => {
 			py="6px"
 			borderRadius="6px"
 			w="fit-content"
+			textStyle={{ base: "regularXxs", md: "regularXs" }}
 		>
-			<Span textStyle="regularXs">€</Span>
-			<Span textStyle="regularXs">¡Gana {`${referralBonus}`}€ por referir!</Span>
+			<Span>€</Span>
+			<Span>¡Gana {`${referralBonus}`}€ por referir!</Span>
 		</Stack>
 	);
 };

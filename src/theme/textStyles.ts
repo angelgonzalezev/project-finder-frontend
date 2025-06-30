@@ -13,11 +13,18 @@ export const textStylesTheme = {
 			lineHeight: "140%",
 		},
 	},
-	regularLg: {
+	fixedRegularLg: {
 		value: {
 			fontWeight: "400",
 			fontSize: "18px",
 			lineHeight: "26px",
+		},
+	},
+	regularLg: {
+		value: {
+			fontWeight: "400",
+			fontSize: { base: "14px", md: "18px" },
+			lineHeight: { base: "20px", md: "26px" },
 		},
 	},
 	regularMd: {
@@ -27,18 +34,32 @@ export const textStylesTheme = {
 			lineHeight: "23px",
 		},
 	},
-	regularSm: {
+	fixedRegularSm: {
 		value: {
 			fontWeight: "400",
 			fontSize: "14px",
 			lineHeight: "20px",
 		},
 	},
-	regularXs: {
+	regularSm: {
+		value: {
+			fontWeight: "400",
+			fontSize: { base: "10px", md: "14px" },
+			lineHeight: { base: "14px", md: "20px" },
+		},
+	},
+	fixedRegularXs: {
 		value: {
 			fontWeight: "400",
 			fontSize: "12px",
 			lineHeight: "16px",
+		},
+	},
+	regularXs: {
+		value: {
+			fontWeight: "400",
+			fontSize: { base: "10px", md: "12px" },
+			lineHeight: { base: "14px", md: "16px" },
 		},
 	},
 	regularXxs: {

@@ -1,5 +1,5 @@
 import TagComponent from "@/components/TagComponent";
-import { HStack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import CalendarIcon from "@/assets/icons/CalendarIcon.svg";
 import ClockIcon from "@/assets/icons/ClockIcon.svg";
 import EuroIcon from "@/assets/icons/EuroIcon.svg";
@@ -15,12 +15,12 @@ const ProjectBannerInfoComponent = (props: ProjectBannerInfoComponentProps) => {
 	const { startDate, totalHours, estimatedBudget, positions } = props;
 
 	return (
-		<HStack>
+		<Stack flexDirection="row" wrap="wrap">
 			<TagComponent icon={CalendarIcon} label={`Inicio: ${startDate}`} />
 			<TagComponent icon={ClockIcon} label={`${totalHours} horas`} />
 			<TagComponent icon={EuroIcon} label={`${estimatedBudget} € (Estimado)`} />
 			<TagComponent icon={UsersIcon} label={`${positions} Talentos`} />
-		</HStack>
+		</Stack>
 	);
 };
 export default ProjectBannerInfoComponent;

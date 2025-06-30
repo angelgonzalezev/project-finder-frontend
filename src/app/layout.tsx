@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Provider } from "../components/ui/provider";
 import { Stack } from "@chakra-ui/react";
-import HeaderComponent from "@/components/HeaderComponent";
+import HeaderComponent from "@/components/HeaderComponent/HeaderComponent";
 import localFont from "next/font/local";
 
 const gtPlanarRegularFont = localFont({
@@ -23,9 +23,9 @@ export default function RootLayout({
 		<html lang="es" suppressHydrationWarning>
 			<body className={gtPlanarRegularFont.className}>
 				<Provider>
-					<Stack flex={1} pt="140px">
+					<Stack flex={1} pt="65px" pb="74px">
 						<HeaderComponent />
-						<Stack flex={1} px="40px" gap="40px">
+						<Stack flex={1} px={{ base: "16px", md: "40px" }} gap="40px" mt="24px">
 							{children}
 						</Stack>
 					</Stack>
