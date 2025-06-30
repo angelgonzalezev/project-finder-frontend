@@ -16,8 +16,8 @@ export default function Home() {
 
 	return (
 		<Fragment>
-			{filters && filters.filters.length > 0 && <SelectedFiltersComponent filters={filters.filters} />}
 			<FilterOptionsComponent onFilter={setFilters} />
+			{filters && filters.filters.length > 0 && <SelectedFiltersComponent filters={filters.filters} />}
 			{filteredProjects.map((project: Project) => (
 				<ProjectDetailsComponent project={project} key={project.id} />
 			))}
