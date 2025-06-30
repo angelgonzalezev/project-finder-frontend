@@ -1,4 +1,3 @@
-import { Colors } from "@/constants/colors";
 import { ProjectBudget } from "@/types/project";
 import { Skill } from "@/types/skill";
 import { Stack, HStack, Span, Text } from "@chakra-ui/react";
@@ -22,13 +21,13 @@ const PositionInfoDetailsComponent = (props: PositionInfoDetailsComponentProps) 
 				{projectTitle}
 			</Text>
 			<HStack>
-				<Text fontWeight="medium" fontSize="14px" lineHeight="20px" color={Colors.TextGreen6}>
+				<Text fontWeight="medium" fontSize="14px" lineHeight="20px" color="textGreen6">
 					<Span>{categoryName}</Span>
 					<Span mx="1"> | </Span>
 					{subcategoryName ? <Span>{subcategoryName}</Span> : null}
 					<Span mx="1"> | </Span>
 					<>
-						<Span mr="1" color={Colors.Green4}>
+						<Span mr="1" color="allGreen4">
 							€
 						</Span>
 						{projectBudget.total ? (

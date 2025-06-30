@@ -1,4 +1,3 @@
-import { Colors } from "@/constants/colors";
 import { Stack, Text } from "@chakra-ui/react";
 
 interface ProfileCardComponentProps {
@@ -9,7 +8,7 @@ const ProfileCardComponent = (props: ProfileCardComponentProps) => {
 	const { title, children } = props;
 	return (
 		<Stack gap="12px">
-			<Text fontSize="18px" lineHeight="26px" color={Colors.TextGreen8}>
+			<Text fontSize="18px" lineHeight="26px" color="textGreen8">
 				{title}
 			</Text>
 			{children}

@@ -1,4 +1,3 @@
-import { Colors } from "@/constants/colors";
 import mockCategories from "@/mockData/mockCategories";
 import mockSkills from "@/mockData/mockSkills";
 import mockSubCategories from "@/mockData/mockSubCategories";
@@ -37,7 +36,7 @@ const PositionInfoComponent = (props: ProjectInformationProps) => {
 	const skills = getSelectedSkills(project.positions[0].skills, mockSkills);
 
 	return (
-		<Stack flexDir="row" key={project.id} borderWidth="1px" borderColor={Colors.AllGrey4} borderRadius="16px" gap={0}>
+		<Stack flexDir="row" key={project.id} borderWidth="1px" borderColor="allGrey4" borderRadius="16px" gap={0}>
 			<HStack flex={1} p="24px">
 				<OrganizationLogoComponent projectOrganization={projectOrganization} />
 				<PositionInfoDetailsComponent

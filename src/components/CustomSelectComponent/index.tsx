@@ -1,5 +1,4 @@
 import { HStack, Text, VStack } from "@chakra-ui/react";
-import { Colors } from "@/constants/colors";
 import { useState } from "react";
 import { FilterOption } from "@/types/filters";
 import SelectedOptionComponent from "./SelectedOptionComponent";
@@ -52,7 +51,7 @@ const CustomSelectComponent = (props: CustomSelectComponentProps) => {
 				justify={selectType === CustomSelectComponentType.MultiSelect ? "start" : "center"}
 				position="relative"
 				borderWidth="1px"
-				borderColor={Colors.AllGrey4}
+				borderColor="allGrey4"
 				borderRadius="sm"
 				px="2px"
 				py="6px"

@@ -1,4 +1,3 @@
-import { Colors } from "@/constants/colors";
 import { HStack, Stack, Text } from "@chakra-ui/react";
 import DesignIcon from "@/assets/icons/DesignIcon.svg";
 import TagComponent from "@/components/TagComponent";
@@ -16,12 +15,12 @@ interface ProjectBannerComponentProps {
 const ProjectBannerComponent = (props: ProjectBannerComponentProps) => {
 	const { title, category, subCategory, startDate, totalHours, estimatedBudget, positions } = props;
 	return (
-		<Stack py="24px" px="40px" bgColor={Colors.TextGreen8} borderRadius="md" gap="8px">
+		<Stack py="24px" px="40px" bgColor="textGreen8" borderRadius="md" gap="8px">
 			<HStack justifyContent="space-between">
 				<Text fontSize="24px" lineHeight="140%" color="white">
 					{title}
 				</Text>
-				<TagComponent label={category} bgColor={Colors.SurfaceGreen2} icon={DesignIcon} />
+				<TagComponent label={category} bgColor="surfaceGreen2" icon={DesignIcon} />
 			</HStack>
 			<Text fontSize="18px" lineHeight="26px" color="white">
 				{subCategory}

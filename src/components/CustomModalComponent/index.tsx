@@ -6,7 +6,6 @@ import CloseIcon from "@/assets/icons/CloseIcon.svg";
 import Image from "next/image";
 import CustomModalContainer from "./CustomModalContainer";
 import MotionBoxContainer from "./MotionBoxContainer";
-import { Colors } from "@/constants/colors";
 
 interface CustomModalComponentProps {
 	isOpen: boolean;
@@ -35,10 +34,10 @@ const CustomModalComponent = ({ isOpen, onClose, onFilter, title, children }: Cu
 							)}
 							<Stack gap="24px">{children}</Stack>
 							<HStack>
-								<Button mt={6} onClick={onClose} colorScheme="blue" fontSize="16px" flex={1} color="red">
+								<Button mt={6} onClick={onClose} fontSize="16px" flex={1} color="textRed6">
 									Eliminar Filtros
 								</Button>
-								<Button mt={6} onClick={onFilter} fontSize="16px" bgColor={Colors.TextGreen8} color="white" flex={1}>
+								<Button mt={6} onClick={onFilter} fontSize="16px" bgColor="textGreen8" color="white" flex={1}>
 									Filtrar
 								</Button>
 							</HStack>

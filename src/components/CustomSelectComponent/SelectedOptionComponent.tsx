@@ -12,7 +12,7 @@ const SelectedOptionComponent = (props: SelectedOptionComponentProps) => {
 	const { option, onUnSelect } = props;
 
 	return (
-		<HStack key={option.id} py="4px" px="4px" bgColor={Colors.SurfaceGreen2} borderRadius="sm" gap="6px">
+		<HStack key={option.id} py="4px" px="4px" bgColor="surfaceGreen2" borderRadius="sm" gap="6px">
 			<Text fontSize="10px" lineHeight="14px">
 				{option.name}
 			</Text>

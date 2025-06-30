@@ -16,7 +16,7 @@ const ResponsableComponent = (props: ResponsableComponentProps) => {
 			<Stack
 				flexDirection="column"
 				borderWidth="1px"
-				borderColor={Colors.AllGrey4}
+				borderColor="allGrey4"
 				borderRadius="12px"
 				p="24px"
 				w="fit-content"
@@ -37,10 +37,10 @@ const ResponsableComponent = (props: ResponsableComponentProps) => {
 					/>
 				</Center>
 				<Stack>
-					<Text fontSize="20px" lineHeight="140%" color={Colors.Grey9}>
+					<Text fontSize="20px" lineHeight="140%" color="allGrey9">
 						{projectResponsable.name} {projectResponsable.lastName}
 					</Text>
-					<Text fontSize="16px" lineHeight="22px" color={Colors.TextGrey8}>
+					<Text fontSize="16px" lineHeight="22px" color="textGrey8">
 						Project Owner
 					</Text>
 				</Stack>

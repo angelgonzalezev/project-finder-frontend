@@ -1,0 +1,15 @@
+export const colors: Record<string, { value: string }> = {
+	primitivesBlack: { value: "#0D0D0D" },
+	allGrey2: { value: "#F4F5F5" },
+	allGrey4: { value: "#E4E7E7" },
+	allGrey9: { value: "#181B1A" },
+	textGrey6: { value: "#AEB7B4" },
+	textGrey8: { value: "#555E5C" },
+	textGreen6: { value: "#0B5A4C" },
+	textGreen8: { value: "#033028" },
+	allGreen4: { value: "#6FBEB0" },
+	surfaceGreen2: { value: "#EDF7F6" },
+	textRed6: { value: "#CA4810" },
+	surfaceGrey0: { value: "#FFFFFF" },
+	allYellow6: { value: "#F0FF3D" },
+};

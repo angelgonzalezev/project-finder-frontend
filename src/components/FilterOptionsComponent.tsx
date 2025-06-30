@@ -19,7 +19,7 @@ const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
 		<Stack flexDirection="row" alignItems="center" justifyContent="flex-end">
 			<HStack w="fit-content" px="8px" cursor="pointer" onClick={onOpen}>
 				<Image src={FilterIcon} alt="button icon" width={16} height={16} />
-				<Text color={Colors.TextGreen8} fontSize="12px">
+				<Text color="textGreen8" fontSize="12px">
 					Filtrar
 				</Text>
 			</HStack>
@@ -28,12 +28,12 @@ const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
 				px="8px"
 				py="6px"
 				borderWidth="1px"
-				borderColor={Colors.TextGreen8}
+				borderColor="textGreen8"
 				borderRadius="6px"
 				cursor="pointer"
 			>
 				<Image src={ArrowIcon} alt="button icon" width={16} height={16} />
-				<Text color={Colors.TextGreen8} fontSize="12px">
+				<Text color="textGreen8" fontSize="12px">
 					publicación
 				</Text>
 			</HStack>

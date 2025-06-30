@@ -1,16 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Colors } from "@/constants/colors";
 import { Center } from "@chakra-ui/react";
 import Image from "next/image";
 
 interface TagComponentProps {
 	key?: number;
 	label: string;
-	bgColor?: Colors;
+	bgColor?: string;
 	icon?: any;
 }
 const TagComponent = (props: TagComponentProps) => {
-	const { key = 0, label, bgColor = Colors.SurfaceGrey0, icon } = props;
+	const { key = 0, label, bgColor = "white", icon } = props;
 	return (
 		<Center
 			key={key}
@@ -18,7 +17,7 @@ const TagComponent = (props: TagComponentProps) => {
 			py="6px"
 			borderRadius="6px"
 			bgColor={bgColor}
-			color={Colors.Grey9}
+			color="allGrey9"
 			fontSize="12px"
 			lineHeight="16px"
 			letterSpacing="0px"

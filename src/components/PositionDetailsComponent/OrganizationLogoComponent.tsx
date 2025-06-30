@@ -1,4 +1,3 @@
-import { Colors } from "@/constants/colors";
 import { ProjectOrganization } from "@/types/project";
 import { Image, Text, VStack } from "@chakra-ui/react";
 
@@ -21,7 +20,7 @@ const OrganizationLogoComponent = (props: OrganizationLogoComponentProps) => {
 			<Text
 				fontSize="12px"
 				lineHeight="16px"
-				color={Colors.TextGrey6}
+				color="textGrey6"
 				mt="8px"
 				maxWidth="82px"
 				whiteSpace="normal"

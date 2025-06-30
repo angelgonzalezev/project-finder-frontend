@@ -1,4 +1,3 @@
-import { Colors } from "@/constants/colors";
 import { Stack } from "@chakra-ui/react";
 import NextImage from "next/image";
 import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
@@ -17,7 +16,7 @@ const PositionButtonComponent = (props: PositionButtonComponentProps) => {
 				alignItems="center"
 				justifyContent="center"
 				borderLeftWidth="1px"
-				borderLeftColor={Colors.AllGrey4}
+				borderLeftColor="allGrey4"
 				cursor="pointer"
 			>
 				<NextImage src={ButtonIcon} alt="button icon" width={24} height={24} />

@@ -13,7 +13,7 @@ const FaqComponent = (props: FaqComponentProps) => {
 		<AccordionRootComponent>
 			{projectFaqs.map((faq: ProjectFaq, index: number) => (
 				<AccordionItemComponent title={faq.question} key={index} index={index}>
-					<Text fontSize="12px" lineHeight="16px" color={Colors.TextGrey8} mt="8px">
+					<Text fontSize="12px" lineHeight="16px" color="textGrey8" mt="8px">
 						{faq.answer}
 					</Text>
 				</AccordionItemComponent>

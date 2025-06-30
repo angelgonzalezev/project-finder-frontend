@@ -13,7 +13,7 @@ const FilterGroupRowComponent = (props: FilterGroupRowComponentProps) => {
 	const { groupFilters, operator } = props;
 	return (
 		<Stack flexDirection="row" alignItems="center">
-			<Text color={Colors.TextGrey8} fontSize="14px" lineHeight="20px">
+			<Text color="textGrey8" fontSize="14px" lineHeight="20px">
 				Especialidades:
 			</Text>
 			<Stack flexDirection="row" alignItems="center">

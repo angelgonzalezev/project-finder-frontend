@@ -13,8 +13,8 @@ const ReferralBonusComponent = (props: ReferralBonusComponentProps) => {
 			flexDirection="row"
 			gap="6px"
 			alignItems="center"
-			bgColor={Colors.SurfaceGreen2}
-			color={Colors.TextGreen8}
+			bgColor="surfaceGreen2"
+			color="textGreen8"
 			px="8px"
 			py="6px"
 			borderRadius="6px"

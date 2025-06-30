@@ -1,4 +1,3 @@
-import { Colors } from "@/constants/colors";
 import { FilterOption } from "@/types/filters";
 import { Box, Text } from "@chakra-ui/react";
 
@@ -16,7 +15,7 @@ const OptionsListComponent = (props: OptionsListComponentProps) => {
 			right={0}
 			bg="white"
 			borderWidth="1px"
-			borderColor={Colors.AllGrey4}
+			borderColor="allGrey4"
 			borderRadius="sm"
 			maxH="200px"
 			overflowY="auto"
