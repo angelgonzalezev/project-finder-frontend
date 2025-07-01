@@ -1,5 +1,5 @@
 import CustomModalComponent from "../CustomModalComponent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import mockSpecialties from "@/mockData/mockSpecialties";
 import { FilterOption, FilterType } from "@/types/filters";
 import InputFilterComponent from "./InputFilterComponent";
@@ -19,14 +19,44 @@ interface FilterModalComponent {
 	onClose: () => void;
 	onFilter: (e: { filters: FilterType[]; order: string | null }) => void;
 	onClean: () => void;
+	selectedSpecialtyFilters?: FilterType;
+	selectedSkillFilters?: FilterType;
+	selectedCategoryFilters?: FilterType;
+	selectedIndustryFilters?: FilterType;
 }
 const FilterModalComponent = (props: FilterModalComponent) => {
-	const { open, onClose, onFilter, onClean } = props;
-	const [specialtyFilter, setSpecialtyFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Specialties });
-	const [skillFilter, setSkillFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Skills });
-	const [categoryFilter, setCategoryFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Categories });
-	const [industryFilter, setIndustryFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Industries });
+	const {
+		open,
+		onClose,
+		onFilter,
+		onClean,
+		selectedSpecialtyFilters,
+		selectedSkillFilters,
+		selectedCategoryFilters,
+		selectedIndustryFilters,
+	} = props;
+
+	const [specialtyFilter, setSpecialtyFilter] = useState<FilterType>(filterInit);
+	const [skillFilter, setSkillFilter] = useState<FilterType>(filterInit);
+	const [categoryFilter, setCategoryFilter] = useState<FilterType>(filterInit);
+	const [industryFilter, setIndustryFilter] = useState<FilterType>(filterInit);
 	const [order, setOrder] = useState<string | null>(null);
+
+	useEffect(() => {
+		setSpecialtyFilter(selectedSpecialtyFilters ?? { ...filterInit, name: FilterNames.Specialties });
+	}, [selectedSpecialtyFilters]);
+
+	useEffect(() => {
+		setSkillFilter(selectedSkillFilters ?? { ...filterInit, name: FilterNames.Skills });
+	}, [selectedSkillFilters]);
+
+	useEffect(() => {
+		setCategoryFilter(selectedCategoryFilters ?? { ...filterInit, name: FilterNames.Categories });
+	}, [selectedCategoryFilters]);
+
+	useEffect(() => {
+		setIndustryFilter(selectedIndustryFilters ?? { ...filterInit, name: FilterNames.Industries });
+	}, [selectedIndustryFilters]);
 
 	const specialtyOptions = mockSpecialties as FilterOption[];
 	const skillOptions = mockSkills as FilterOption[];
@@ -42,7 +72,6 @@ const FilterModalComponent = (props: FilterModalComponent) => {
 	};
 
 	const handleOnClose = () => {
-		initializeFilters();
 		setOrder(null);
 		onClose();
 	};
@@ -54,7 +83,7 @@ const FilterModalComponent = (props: FilterModalComponent) => {
 
 	const handleOnFilter = () => {
 		const filters = [specialtyFilter, skillFilter, categoryFilter, industryFilter].filter(
-			(item) => item.selectedFilters && item.selectedFilters.length > 0
+			(item) => item?.selectedFilters && item.selectedFilters.length > 0
 		);
 		onFilter({ filters, order });
 		onClose();

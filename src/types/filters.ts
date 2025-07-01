@@ -1,3 +1,5 @@
+import { FilterNames } from "@/components/FilterModalComponent/types";
+
 export interface FilterOption {
 	id: number;
 	name: string;
@@ -6,7 +8,7 @@ export interface FilterOption {
 export interface FilterType {
 	selectedFilters: FilterOption[];
 	operator: FilterOption[];
-	name: string;
+	name?: FilterNames;
 }
 
 export interface FilterData {

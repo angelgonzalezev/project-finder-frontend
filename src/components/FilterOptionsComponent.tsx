@@ -6,19 +6,28 @@ import ArrowIcon from "@/assets/icons/ArrowIcon.svg";
 import FilterIcon from "@/assets/icons/FilterIcon.svg";
 import FilterModalComponent from "./FilterModalComponent";
 import { FilterType } from "@/types/filters";
+import { FilterNames } from "./FilterModalComponent/types";
 
 interface FilterOptionsCOmponentProps {
 	onFilter: (e: { filters: FilterType[]; order: string | null }) => void;
 	onClean: () => void;
+	selectedFilters?: FilterType[];
 }
 const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
-	const { onFilter, onClean } = props;
+	const { onFilter, onClean, selectedFilters } = props;
 	const { open, onOpen, onClose } = useDisclosure();
 
 	const handleOnClean = () => {
 		onClean();
 		onClose();
 	};
+
+	const selectedSpecialtyFilters = selectedFilters?.find(
+		(filter: FilterType) => filter.name === FilterNames.Specialties
+	);
+	const selectedSkillFilters = selectedFilters?.find((filter: FilterType) => filter.name === FilterNames.Skills);
+	const selectedCategoryFilters = selectedFilters?.find((filter: FilterType) => filter.name === FilterNames.Categories);
+	const selectedIndustryFilters = selectedFilters?.find((filter: FilterType) => filter.name === FilterNames.Industries);
 
 	return (
 		<Stack flexDirection="row" alignItems="center" justifyContent="flex-end">
@@ -42,7 +51,16 @@ const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
 					publicación
 				</Text>
 			</HStack>
-			<FilterModalComponent open={open} onClose={onClose} onFilter={onFilter} onClean={handleOnClean} />
+			<FilterModalComponent
+				open={open}
+				onClose={onClose}
+				onFilter={onFilter}
+				onClean={handleOnClean}
+				selectedSpecialtyFilters={selectedSpecialtyFilters}
+				selectedSkillFilters={selectedSkillFilters}
+				selectedCategoryFilters={selectedCategoryFilters}
+				selectedIndustryFilters={selectedIndustryFilters}
+			/>
 		</Stack>
 	);
 };

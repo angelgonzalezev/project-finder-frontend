@@ -1,4 +1,4 @@
-import { FilterType } from "@/types/filters";
+import { FilterOption, FilterType } from "@/types/filters";
 import { Stack } from "@chakra-ui/react";
 import { FilterNames } from "../FilterModalComponent/types";
 import FilterGroupRowComponent from "./FilterGroupRowComponent";
@@ -7,10 +7,11 @@ import AccordionRootComponent from "../AccordionComponent/AccordionRootComponent
 
 interface SelectedFiltersComponentProps {
 	filters: FilterType[];
+	onRemove: (e: FilterOption, f: FilterNames) => void;
 }
 
 const SelectedFiltersComponent = (props: SelectedFiltersComponentProps) => {
-	const { filters } = props;
+	const { filters, onRemove } = props;
 	const specialtyFilters = filters.filter((item: FilterType) => item.name === FilterNames.Specialties)[0];
 	const specialtyOperator = specialtyFilters?.operator[0];
 
@@ -32,20 +33,36 @@ const SelectedFiltersComponent = (props: SelectedFiltersComponentProps) => {
 							groupFilters={specialtyFilters}
 							operator={specialtyOperator}
 							title="Especialidades"
+							onRemove={onRemove}
+							filterGroup={FilterNames.Specialties}
 						/>
 					)}
 					{skillFilters && (
-						<FilterGroupRowComponent groupFilters={skillFilters} operator={skillOperator} title="Habilidades" />
+						<FilterGroupRowComponent
+							groupFilters={skillFilters}
+							operator={skillOperator}
+							title="Habilidades"
+							onRemove={onRemove}
+							filterGroup={FilterNames.Skills}
+						/>
 					)}
 					{categoryFilters && (
 						<FilterGroupRowComponent
 							groupFilters={categoryFilters}
 							operator={categoryOperator}
 							title="Tipo de proyectos"
+							onRemove={onRemove}
+							filterGroup={FilterNames.Categories}
 						/>
 					)}
 					{industryFilters && (
-						<FilterGroupRowComponent groupFilters={industryFilters} operator={industryOperator} title="Industrias" />
+						<FilterGroupRowComponent
+							groupFilters={industryFilters}
+							operator={industryOperator}
+							title="Industrias"
+							onRemove={onRemove}
+							filterGroup={FilterNames.Industries}
+						/>
 					)}
 				</Stack>
 			</AccordionItemComponent>
