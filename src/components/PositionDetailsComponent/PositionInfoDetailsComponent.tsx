@@ -2,7 +2,8 @@ import { ProjectBudget } from "@/types/project";
 import { Skill } from "@/types/skill";
 import { Stack, HStack, Span, Text } from "@chakra-ui/react";
 import PositionSkillsComponent from "./PositionSkillsComponent";
-import { formatWithCommas } from "@/utils/currency";
+import SeparatorComponent from "./SeparatorComponent";
+import BudgetComponent from "./BudgetComponent";
 
 interface PositionInfoDetailsComponentProps {
 	projectTitle: string;
@@ -21,20 +22,15 @@ const PositionInfoDetailsComponent = (props: PositionInfoDetailsComponentProps) 
 			<HStack>
 				<Text textStyle="regularSm" color="textGreen6">
 					<Span>{categoryName}</Span>
-					<Span mx="1"> | </Span>
-					{subcategoryName ? <Span>{subcategoryName}</Span> : null}
-					<Span mx="1"> | </Span>
+					{subcategoryName && (
+						<SeparatorComponent>
+							<Span>{subcategoryName}</Span> : null
+						</SeparatorComponent>
+					)}
 					<>
-						<Span mr="1" color="allGreen4">
-							€
-						</Span>
-						{projectBudget.total ? (
-							<Span>{formatWithCommas(projectBudget.total)}€</Span>
-						) : (
-							<Span>
-								{projectBudget.hourFrom} - {projectBudget.hourTo} €/h
-							</Span>
-						)}
+						<SeparatorComponent>
+							<BudgetComponent projectBudget={projectBudget} />
+						</SeparatorComponent>
 					</>
 				</Text>
 			</HStack>

@@ -1,10 +1,14 @@
+import { Category } from "./category";
+import { Skill } from "./skill";
+import { SubCategory } from "./subcategory";
+
 export interface Project {
 	id: number;
 	title: string;
 	organization: ProjectOrganization;
 	projectLeader: ProjectLeader;
-	category: number;
-	subcategory: number;
+	category: Category;
+	subcategory: SubCategory;
 	startDate: string;
 	budget: ProjectBudget;
 	totalHours: number;
@@ -21,7 +25,7 @@ export interface Project {
 export interface ProjectPosition {
 	id: number;
 	title: string;
-	skills: number[];
+	skills: Skill[];
 	specialties: number[];
 	referralBonus: number | null;
 }
