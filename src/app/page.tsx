@@ -17,6 +17,7 @@ export default function Home() {
 
 	useEffect(() => {
 		const fetchProjects = async () => {
+			setLoading(true);
 			try {
 				const { success, data } = await getProjects(filters);
 
@@ -33,9 +34,13 @@ export default function Home() {
 		fetchProjects();
 	}, [filters]);
 
+	const handleOnClean = () => {
+		setFilters(undefined);
+	};
+
 	return (
 		<Fragment>
-			<FilterOptionsComponent onFilter={setFilters} />
+			<FilterOptionsComponent onFilter={setFilters} onClean={handleOnClean} />
 			{filters && filters.filters.length > 0 && <SelectedFiltersComponent filters={filters.filters} />}
 
 			{loading ? (

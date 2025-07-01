@@ -1,11 +1,10 @@
 import { HStack, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { FilterOption } from "@/types/filters";
-import SelectedOptionComponent from "./SelectedOptionComponent";
-import InputOptionComponent from "./InputOptionComponent";
 import ToggleOptionsComponent from "./ToggleOptionsComponent";
 import OptionsListComponent from "./OptionsListComponent";
 import { CustomSelectComponentType } from "./types";
+import InputComponent from "./InputComponent";
 
 interface CustomSelectComponentProps {
 	selectedOptions: FilterOption[];
@@ -58,16 +57,13 @@ const CustomSelectComponent = (props: CustomSelectComponentProps) => {
 				w="100%"
 			>
 				{selectType === CustomSelectComponentType.MultiSelect && (
-					<>
-						{selectedOptions.length > 0 && (
-							<HStack>
-								{selectedOptions.map((option: FilterOption) => (
-									<SelectedOptionComponent option={option} onUnSelect={onUnSelect} key={option.id} />
-								))}
-							</HStack>
-						)}
-						<InputOptionComponent input={input} setInput={setInput} setShowOptions={setShowOptions} />
-					</>
+					<InputComponent
+						selectedOptions={selectedOptions}
+						input={input}
+						setInput={setInput}
+						onUnSelect={onUnSelect}
+						setShowOptions={setShowOptions}
+					/>
 				)}
 				{selectType === CustomSelectComponentType.SingleSelect && <Text>{selectedOptions[0].name}</Text>}
 				<ToggleOptionsComponent showOptions={showOptions} setShowOptions={setShowOptions} />

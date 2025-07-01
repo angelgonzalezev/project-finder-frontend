@@ -9,10 +9,16 @@ import { FilterType } from "@/types/filters";
 
 interface FilterOptionsCOmponentProps {
 	onFilter: (e: { filters: FilterType[]; order: string | null }) => void;
+	onClean: () => void;
 }
 const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
-	const { onFilter } = props;
+	const { onFilter, onClean } = props;
 	const { open, onOpen, onClose } = useDisclosure();
+
+	const handleOnClean = () => {
+		onClean();
+		onClose();
+	};
 
 	return (
 		<Stack flexDirection="row" alignItems="center" justifyContent="flex-end">
@@ -36,7 +42,7 @@ const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
 					publicación
 				</Text>
 			</HStack>
-			<FilterModalComponent open={open} onClose={onClose} onFilter={onFilter} />
+			<FilterModalComponent open={open} onClose={onClose} onFilter={onFilter} onClean={handleOnClean} />
 		</Stack>
 	);
 };

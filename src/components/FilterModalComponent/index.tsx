@@ -18,9 +18,10 @@ interface FilterModalComponent {
 	open: boolean;
 	onClose: () => void;
 	onFilter: (e: { filters: FilterType[]; order: string | null }) => void;
+	onClean: () => void;
 }
 const FilterModalComponent = (props: FilterModalComponent) => {
-	const { open, onClose, onFilter } = props;
+	const { open, onClose, onFilter, onClean } = props;
 	const [specialtyFilter, setSpecialtyFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Specialties });
 	const [skillFilter, setSkillFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Skills });
 	const [categoryFilter, setCategoryFilter] = useState<FilterType>({ ...filterInit, name: FilterNames.Categories });
@@ -32,13 +33,23 @@ const FilterModalComponent = (props: FilterModalComponent) => {
 	const categoryOptions = mockCategories as FilterOption[];
 	const industryOptions = mockIndustries as FilterOption[];
 
-	const handleOnClose = () => {
+	const initializeFilters = () => {
 		setSpecialtyFilter({ ...filterInit, name: FilterNames.Specialties });
 		setSkillFilter({ ...filterInit, name: FilterNames.Skills });
 		setCategoryFilter({ ...filterInit, name: FilterNames.Categories });
 		setIndustryFilter({ ...filterInit, name: FilterNames.Industries });
 		setOrder(null);
+	};
+
+	const handleOnClose = () => {
+		initializeFilters();
+		setOrder(null);
 		onClose();
+	};
+
+	const handleOnClean = () => {
+		initializeFilters();
+		onClean();
 	};
 
 	const handleOnFilter = () => {
@@ -50,7 +61,13 @@ const FilterModalComponent = (props: FilterModalComponent) => {
 	};
 
 	return (
-		<CustomModalComponent isOpen={open} onClose={handleOnClose} onFilter={handleOnFilter} title="Filtrar Proyectos">
+		<CustomModalComponent
+			isOpen={open}
+			onClose={handleOnClose}
+			onFilter={handleOnFilter}
+			title="Filtrar Proyectos"
+			onClean={handleOnClean}
+		>
 			<InputFilterComponent
 				title="Especialidades"
 				options={specialtyOptions}

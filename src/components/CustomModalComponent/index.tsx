@@ -10,12 +10,14 @@ import MotionBoxContainer from "./MotionBoxContainer";
 interface CustomModalComponentProps {
 	isOpen: boolean;
 	onClose: () => void;
+	onClean: () => void;
 	onFilter: () => void;
 	title: string;
 	children: React.ReactNode;
 }
 
-const CustomModalComponent = ({ isOpen, onClose, onFilter, title, children }: CustomModalComponentProps) => {
+const CustomModalComponent = (props: CustomModalComponentProps) => {
+	const { isOpen, onClose, onFilter, title, children, onClean } = props;
 	return (
 		<AnimatePresence>
 			{isOpen && (
@@ -34,7 +36,7 @@ const CustomModalComponent = ({ isOpen, onClose, onFilter, title, children }: Cu
 							)}
 							<Stack gap="24px">{children}</Stack>
 							<HStack>
-								<Button mt={6} onClick={onClose} textStyle="regularMd" flex={1} color="textRed6">
+								<Button mt={6} onClick={onClean} textStyle="regularMd" flex={1} color="textRed6">
 									Eliminar Filtros
 								</Button>
 								<Button mt={6} onClick={onFilter} textStyle="regularMd" bgColor="textGreen8" color="white" flex={1}>
