@@ -19,7 +19,6 @@ const PositionInfoComponent = (props: ProjectInformationProps) => {
 	const projectBudget = project.budget;
 	const projectOrganization = project.organization;
 	const skills = project.positions[0].skills;
-	console.log("🚀 ~ PositionInfoComponent ~ skills:", skills);
 
 	return (
 		<Link href={`/${project.id}`} passHref>
