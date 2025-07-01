@@ -1,4 +1,5 @@
 import { Category } from "./category";
+import { Goal } from "./goal";
 import { Skill } from "./skill";
 import { SubCategory } from "./subcategory";
 
@@ -13,7 +14,7 @@ export interface Project {
 	budget: ProjectBudget;
 	totalHours: number;
 	description: string;
-	goals: string[];
+	goals: Goal[];
 	faqs: ProjectFaq[];
 	status: string;
 	creationDate: string;

@@ -11,13 +11,14 @@ interface ProjectProfilesComponentProps {
 }
 const ProjectProfilesComponent = (props: ProjectProfilesComponentProps) => {
 	const { projectPositions, projectOrganization, projectResponsable } = props;
+
 	return (
-		<Stack flexDirection="row" alignItems="start" wrap="wrap">
+		<Stack flexDirection={{ base: "column", md: "row" }} w="100%" gap="64px">
 			<ProfileCardComponent title="Responsable">
 				<ResponsableComponent projectOrganization={projectOrganization} projectResponsable={projectResponsable} />
 			</ProfileCardComponent>
 			<ProfileCardComponent title="Equipo">
-				<HStack>
+				<HStack flexDirection="row" alignItems="start" wrap="wrap" w="100%">
 					{projectPositions.map((position: ProjectPosition) => (
 						<PositionComponent position={position} key={position.id} />
 					))}

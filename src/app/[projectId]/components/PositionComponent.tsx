@@ -7,6 +7,7 @@ interface PositionComponentProps {
 }
 const PositionComponent = (props: PositionComponentProps) => {
 	const { position } = props;
+	const { skills } = position;
 	return (
 		<Stack
 			flexDirection="column"
@@ -14,7 +15,7 @@ const PositionComponent = (props: PositionComponentProps) => {
 			borderColor="allGrey4"
 			borderRadius="12px"
 			p="24px"
-			w="fit-content"
+			w="300px"
 			gap="16px"
 			maxW="600px"
 			minW="208px"
@@ -24,7 +25,7 @@ const PositionComponent = (props: PositionComponentProps) => {
 					{position.title}
 				</Text>
 				<Text textStyle="regularSm" color="textGrey8">
-					{formatSkillList(position.skills)}
+					{formatSkillList(skills)}
 				</Text>
 			</Stack>
 			<Button textStyle="regularSm" bgColor="allYellow6" color="allGrey9" borderRadius="md">

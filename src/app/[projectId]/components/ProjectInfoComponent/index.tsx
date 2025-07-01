@@ -2,10 +2,11 @@ import { Stack, Text } from "@chakra-ui/react";
 import InfoSectionComponent from "./InfoSectionComponent";
 import FaqComponent from "./FaqComponent";
 import { ProjectFaq } from "@/types/project";
+import { Goal } from "@/types/goal";
 
 interface ProjectInfoComponentProps {
 	projectDescription: string;
-	projectGoals: string[];
+	projectGoals: Goal[];
 	projectFaqs: ProjectFaq[];
 }
 const ProjectInfoComponent = (props: ProjectInfoComponentProps) => {
@@ -20,8 +21,8 @@ const ProjectInfoComponent = (props: ProjectInfoComponentProps) => {
 
 			<InfoSectionComponent title="¿Cuáles son los objetivos y tareas a realizar?">
 				<Stack listStyleType="circle" textStyle="fixedRegularSm" color="textGrey8">
-					{projectGoals.map((goal: string, index: number) => (
-						<li key={index}>{goal}</li>
+					{projectGoals.map((goal: Goal) => (
+						<li key={goal.id}>{goal.goal}</li>
 					))}
 				</Stack>
 			</InfoSectionComponent>

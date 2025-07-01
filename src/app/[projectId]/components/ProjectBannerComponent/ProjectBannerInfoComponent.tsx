@@ -8,7 +8,7 @@ import UsersIcon from "@/assets/icons/UsersIcon.svg";
 interface ProjectBannerInfoComponentProps {
 	startDate: string;
 	totalHours: number;
-	estimatedBudget: number;
+	estimatedBudget: number | null;
 	positions: number;
 }
 const ProjectBannerInfoComponent = (props: ProjectBannerInfoComponentProps) => {

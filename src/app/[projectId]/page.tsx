@@ -1,9 +1,9 @@
 import SearchBarComponent from "./components/SearchBarComponent";
 import ProjectBannerComponent from "./components/ProjectBannerComponent";
-import mockProjects from "@/mockData/mockProjects";
 import ProjectInfoComponent from "./components/ProjectInfoComponent";
 import { Stack } from "@chakra-ui/react";
 import ProjectProfilesComponent from "./components/ProjectProfilesComponent";
+import { notFound } from "next/navigation";
 import { getProjectDetails } from "@/services/projectsService";
 
 interface ProjectDetailsProps {
@@ -14,41 +14,45 @@ interface ProjectDetailsProps {
 
 const ProjectDetails = async ({ params }: ProjectDetailsProps) => {
 	const { projectId } = params;
-	console.log("🚀 ~ ProjectDetails ~ projectId:", projectId);
 
-	const projectDetails = await getProjectDetails(projectId);
-	console.log("🚀 ~ ProjectDetails ~ projectDetails:", projectDetails);
+	const { success, data: projectDetails } = await getProjectDetails(projectId);
 
-	const mockProject = mockProjects[0];
+	if (!success) return notFound();
 
-	const projectDescription = mockProject.description;
-	const projectGoals = mockProject.goals;
-	const projectFaqs = mockProject.faqs;
-	const projectOrganization = mockProject.organization;
-	const projectResponsable = mockProject.projectLeader;
-	const projectPositions = mockProject.positions;
+	const {
+		title,
+		description,
+		goals,
+		faqs,
+		organization,
+		projectLeader,
+		positions,
+		category,
+		subcategory,
+		startDate,
+		totalHours,
+		budget,
+	} = projectDetails;
+
+	const estimatedBudget = budget.hourTo ? budget.hourTo * totalHours : budget.total;
 
 	return (
 		<Stack gap="40px">
-			<SearchBarComponent />
+			<SearchBarComponent title={title} />
 			<ProjectBannerComponent
-				title={"Crea un CRM personalizado para pymes"}
-				category={"Diseño"}
-				subCategory={"UX/UI Specialist"}
-				startDate={"24/07/23"}
-				totalHours={234}
-				estimatedBudget={2345}
-				positions={2}
+				title={title}
+				category={category.name}
+				subCategory={subcategory?.name}
+				startDate={new Date(startDate).toLocaleDateString()}
+				totalHours={totalHours}
+				estimatedBudget={estimatedBudget}
+				positions={positions.length}
 			/>
-			<ProjectInfoComponent
-				projectDescription={projectDescription}
-				projectGoals={projectGoals}
-				projectFaqs={projectFaqs}
-			/>
+			<ProjectInfoComponent projectDescription={description} projectGoals={goals} projectFaqs={faqs} />
 			<ProjectProfilesComponent
-				projectOrganization={projectOrganization}
-				projectResponsable={projectResponsable}
-				projectPositions={projectPositions}
+				projectOrganization={organization}
+				projectResponsable={projectLeader}
+				projectPositions={positions}
 			/>
 		</Stack>
 	);

@@ -4,7 +4,11 @@ import ChevronIconComponent from "@/components/ChevronIconComponent";
 import { HStack, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 
-const SearchBarComponent = () => {
+interface SearchBarComponent {
+	title: string;
+}
+const SearchBarComponent = (props: SearchBarComponent) => {
+	const { title } = props;
 	const router = useRouter();
 
 	const handleonBack = () => router.back();
@@ -25,7 +29,7 @@ const SearchBarComponent = () => {
 					/
 				</Text>
 				<Text textStyle="boldXs" fontStyle="italic" color="allGrey9" flex="1">
-					Diseña una app movil para un SaaS de contabilidad
+					{title}
 				</Text>
 			</HStack>
 		</HStack>

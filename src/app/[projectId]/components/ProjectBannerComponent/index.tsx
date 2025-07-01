@@ -9,7 +9,7 @@ interface ProjectBannerComponentProps {
 	subCategory: string;
 	startDate: string;
 	totalHours: number;
-	estimatedBudget: number;
+	estimatedBudget: number | null;
 	positions: number;
 }
 const ProjectBannerComponent = (props: ProjectBannerComponentProps) => {

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Skill } from "@/types/skill";
 
 /**
  * Formatea una lista de habilidades en una cadena legible en español.
@@ -8,15 +8,17 @@
  * - Si hay más de dos, separa con comas y añade " y " antes del último.
  * Ejemplo: ["Angular", "Bitbucket", "React"] => "Angular, Bitbucket y React"
  */
-export const formatSkillList = (items: any[]) => {
-	if (!Array.isArray(items)) return "";
-	const len = items.length;
+export const formatSkillList = (items: Skill[]) => {
+	const skills = items.map((item: Skill) => item.name);
+
+	if (!Array.isArray(skills)) return "";
+	const len = skills.length;
 
 	if (len === 0) return "";
-	if (len === 1) return String(items[0]);
-	if (len === 2) return `${items[0]} y ${items[1]}`;
+	if (len === 1) return String(skills[0]);
+	if (len === 2) return `${skills[0]} y ${skills[1]}`;
 
-	const allButLast = items.slice(0, -1).join(", ");
-	const last = items[len - 1];
+	const allButLast = skills.slice(0, -1).join(", ");
+	const last = skills[len - 1];
 	return `${allButLast} y ${last}`;
 };
