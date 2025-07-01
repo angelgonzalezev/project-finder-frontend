@@ -18,8 +18,12 @@ export default function Home() {
 	useEffect(() => {
 		const fetchProjects = async () => {
 			try {
-				const projects = await getProjects();
-				setProjects(projects);
+				const { success, data } = await getProjects();
+
+				if (success && data) {
+					setProjects(data);
+				}
+				setError(!success);
 			} catch {
 				setError(true);
 			} finally {
