@@ -4,8 +4,21 @@ import mockProjects from "@/mockData/mockProjects";
 import ProjectInfoComponent from "./components/ProjectInfoComponent";
 import { Stack } from "@chakra-ui/react";
 import ProjectProfilesComponent from "./components/ProjectProfilesComponent";
+import { getProjectDetails } from "@/services/projectsService";
 
-const page = () => {
+interface ProjectDetailsProps {
+	params: {
+		projectId: string;
+	};
+}
+
+const ProjectDetails = async ({ params }: ProjectDetailsProps) => {
+	const { projectId } = params;
+	console.log("🚀 ~ ProjectDetails ~ projectId:", projectId);
+
+	const projectDetails = await getProjectDetails(projectId);
+	console.log("🚀 ~ ProjectDetails ~ projectDetails:", projectDetails);
+
 	const mockProject = mockProjects[0];
 
 	const projectDescription = mockProject.description;
@@ -40,4 +53,4 @@ const page = () => {
 		</Stack>
 	);
 };
-export default page;
+export default ProjectDetails;
