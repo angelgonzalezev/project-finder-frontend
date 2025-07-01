@@ -24,7 +24,7 @@ const PositionInfoDetailsComponent = (props: PositionInfoDetailsComponentProps) 
 					<Span>{categoryName}</Span>
 					{subcategoryName && (
 						<SeparatorComponent>
-							<Span>{subcategoryName}</Span> : null
+							<Span>{subcategoryName}</Span>
 						</SeparatorComponent>
 					)}
 					<>
