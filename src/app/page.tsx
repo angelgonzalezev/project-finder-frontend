@@ -10,7 +10,7 @@ import SelectedFiltersComponent from "@/components/SelectedFiltersComponent";
 import { getProjects } from "@/services/projectsService";
 
 export default function Home() {
-	const [filters, setFilters] = useState<FilterData | null>(null);
+	const [filters, setFilters] = useState<FilterData>();
 	const [projects, setProjects] = useState<Project[] | null>(null);
 	const [error, setError] = useState<boolean>(false);
 	const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ export default function Home() {
 	useEffect(() => {
 		const fetchProjects = async () => {
 			try {
-				const { success, data } = await getProjects();
+				const { success, data } = await getProjects(filters);
 
 				if (success && data) {
 					setProjects(data);
@@ -31,7 +31,7 @@ export default function Home() {
 			}
 		};
 		fetchProjects();
-	}, []);
+	}, [filters]);
 
 	return (
 		<Fragment>
