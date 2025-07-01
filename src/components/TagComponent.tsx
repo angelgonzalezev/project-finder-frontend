@@ -3,16 +3,14 @@ import { Center } from "@chakra-ui/react";
 import Image from "next/image";
 
 interface TagComponentProps {
-	key?: number;
 	label: string;
 	bgColor?: string;
 	icon?: any;
 }
 const TagComponent = (props: TagComponentProps) => {
-	const { key = 0, label, bgColor = "white", icon } = props;
+	const { label, bgColor = "white", icon } = props;
 	return (
 		<Center
-			key={key}
 			textStyle="regularXs"
 			px="8px"
 			py="6px"
