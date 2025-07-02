@@ -5,16 +5,18 @@ import Image from "next/image";
 import ArrowIcon from "@/assets/icons/ArrowIcon.svg";
 import FilterIcon from "@/assets/icons/FilterIcon.svg";
 import FilterModalComponent from "./FilterModalComponent";
-import { FilterType } from "@/types/filters";
+import { FilterData, FilterType, OrderEnum } from "@/types/filters";
 import { FilterNames } from "./FilterModalComponent/types";
+import IconComponent from "./IconComponent";
 
 interface FilterOptionsCOmponentProps {
-	onFilter: (e: { filters: FilterType[]; order: string | null }) => void;
+	onFilter: (e: FilterData) => void;
 	onClean: () => void;
 	selectedFilters?: FilterType[];
+	order: string | null;
 }
 const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
-	const { onFilter, onClean, selectedFilters } = props;
+	const { onFilter, onClean, selectedFilters, order } = props;
 	const { open, onOpen, onClose } = useDisclosure();
 
 	const handleOnClean = () => {
@@ -37,16 +39,8 @@ const FilterOptionsComponent = (props: FilterOptionsCOmponentProps) => {
 					Filtrar
 				</Text>
 			</HStack>
-			<HStack
-				w="fit-content"
-				px="8px"
-				py="6px"
-				borderWidth="1px"
-				borderColor="textGreen8"
-				borderRadius="6px"
-				cursor="pointer"
-			>
-				<Image src={ArrowIcon} alt="button icon" width={16} height={16} />
+			<HStack w="fit-content" px="8px" py="6px" borderWidth="1px" borderColor="textGreen8" borderRadius="6px">
+				<IconComponent width={16} height={16} icon={ArrowIcon} rotationDeg={order === OrderEnum.ASC ? 180 : 0} />
 				<Text color="textGreen8" textStyle="regularXs">
 					publicación
 				</Text>

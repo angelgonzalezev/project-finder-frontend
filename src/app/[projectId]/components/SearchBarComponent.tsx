@@ -1,6 +1,7 @@
 "use client";
 
-import ChevronIconComponent from "@/components/ChevronIconComponent";
+import IconComponent from "@/components/IconComponent";
+import ChevronIcon from "@/assets/icons/ChevronIcon.svg";
 import { HStack, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 
@@ -16,7 +17,7 @@ const SearchBarComponent = (props: SearchBarComponent) => {
 	return (
 		<HStack flexDirection="row" alignItems="start" align={{ base: "start", md: "center" }}>
 			<HStack onClick={handleonBack} cursor="pointer" align="center">
-				<ChevronIconComponent rotationDeg={90} height={16} width={16} />
+				<IconComponent rotationDeg={90} height={16} width={16} icon={ChevronIcon} />
 				<Text textStyle="regularXs" color="textGreen8">
 					Atrás
 				</Text>

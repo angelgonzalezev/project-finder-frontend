@@ -1,7 +1,7 @@
 import CustomModalComponent from "../CustomModalComponent";
 import { useEffect, useState } from "react";
 import mockSpecialties from "@/mockData/mockSpecialties";
-import { FilterOption, FilterType } from "@/types/filters";
+import { FilterData, FilterOption, FilterType, OrderEnum } from "@/types/filters";
 import InputFilterComponent from "./InputFilterComponent";
 import mockSkills from "@/mockData/mockSkills";
 import { FilterNames, FilterOperatorTypes } from "./types";
@@ -17,7 +17,7 @@ const filterInit = {
 interface FilterModalComponent {
 	open: boolean;
 	onClose: () => void;
-	onFilter: (e: { filters: FilterType[]; order: string | null }) => void;
+	onFilter: (e: FilterData) => void;
 	onClean: () => void;
 	selectedSpecialtyFilters?: FilterType;
 	selectedSkillFilters?: FilterType;
@@ -40,7 +40,7 @@ const FilterModalComponent = (props: FilterModalComponent) => {
 	const [skillFilter, setSkillFilter] = useState<FilterType>(filterInit);
 	const [categoryFilter, setCategoryFilter] = useState<FilterType>(filterInit);
 	const [industryFilter, setIndustryFilter] = useState<FilterType>(filterInit);
-	const [order, setOrder] = useState<string | null>(null);
+	const [order, setOrder] = useState<OrderEnum | null>(null);
 
 	useEffect(() => {
 		setSpecialtyFilter(selectedSpecialtyFilters ?? { ...filterInit, name: FilterNames.Specialties });

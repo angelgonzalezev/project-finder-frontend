@@ -13,5 +13,10 @@ export interface FilterType {
 
 export interface FilterData {
 	filters: FilterType[];
-	order: string | null;
+	order: OrderEnum | null;
+}
+
+export enum OrderEnum {
+	ASC = "ASC",
+	DESC = "DESC",
 }

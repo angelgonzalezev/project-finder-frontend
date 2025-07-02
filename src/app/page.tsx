@@ -55,7 +55,12 @@ export default function Home() {
 
 	return (
 		<Fragment>
-			<FilterOptionsComponent onFilter={setFilters} onClean={handleOnClean} selectedFilters={filters.filters} />
+			<FilterOptionsComponent
+				onFilter={setFilters}
+				onClean={handleOnClean}
+				selectedFilters={filters.filters}
+				order={filters.order}
+			/>
 			{filters && filters.filters && filters.filters.length > 0 && (
 				<SelectedFiltersComponent filters={filters.filters} onRemove={handleOnRemoveFilter} />
 			)}
