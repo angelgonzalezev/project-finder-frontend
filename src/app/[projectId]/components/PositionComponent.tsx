@@ -8,6 +8,8 @@ import { PlacementEnum } from "@/components/CustomToasterComponent/types";
 import { ProjectPosition } from "@/types/project";
 import { formatSkillList } from "@/utils/utils";
 import { Button, Stack, Text, useBreakpointValue } from "@chakra-ui/react";
+import { useState } from "react";
+import AppliedTagComponent from "./AppliedTagComponent";
 
 interface PositionComponentProps {
 	position: ProjectPosition;
@@ -15,6 +17,7 @@ interface PositionComponentProps {
 const PositionComponent = (props: PositionComponentProps) => {
 	const { position } = props;
 	const { skills } = position;
+	const [applied, setApplied] = useState<boolean>(false);
 
 	const toastPlacement = useBreakpointValue({
 		base: PlacementEnum.Top,
@@ -26,8 +29,17 @@ const PositionComponent = (props: PositionComponentProps) => {
 	const toaster = createCustomToaster(toastPlacement, toastOffsets);
 
 	const handleOnApply = () => {
-		toaster.create({ title: "Aplicación enviada con éxito" });
+		const currentValue = applied;
+
+		if (currentValue === false) toaster.create({ title: "Aplicación enviada con éxito" });
+
+		setApplied(!currentValue);
 	};
+
+	const getButtonStyles = () =>
+		applied
+			? { color: "textRed6", borderWidth: "1px", borderColor: "allRed6" }
+			: { bgColor: "allYellow6", color: "allGrey9" };
 
 	return (
 		<Stack
@@ -41,6 +53,7 @@ const PositionComponent = (props: PositionComponentProps) => {
 			maxW="600px"
 			minW="208px"
 		>
+			{applied && <AppliedTagComponent />}
 			<Stack>
 				<Text textStyle="headingXl" color="allGrey9">
 					{position.title}
@@ -49,8 +62,8 @@ const PositionComponent = (props: PositionComponentProps) => {
 					{formatSkillList(skills)}
 				</Text>
 			</Stack>
-			<Button textStyle="regularSm" bgColor="allYellow6" color="allGrey9" borderRadius="md" onClick={handleOnApply}>
-				Aplicar
+			<Button textStyle="regularSm" borderRadius="md" {...getButtonStyles()} onClick={handleOnApply}>
+				{applied ? "Retirar Candidatura" : "Aplicar"}
 			</Button>
 			<CustomToasterComponent toasterInstance={toaster} />
 		</Stack>

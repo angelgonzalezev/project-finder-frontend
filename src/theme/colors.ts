@@ -11,6 +11,8 @@ export const colors: Record<string, { value: string }> = {
 	allGreen4: { value: "#6FBEB0" },
 	surfaceGreen2: { value: "#EDF7F6" },
 	textRed6: { value: "#CA4810" },
+	allRed6: { value: "##CA4810" },
 	surfaceGrey0: { value: "#FFFFFF" },
+	allYellow2: { value: "#F8F9EC" },
 	allYellow6: { value: "#F0FF3D" },
 };
