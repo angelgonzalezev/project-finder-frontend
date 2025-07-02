@@ -5,21 +5,27 @@ interface AccordionItemComponentProps {
 	children: React.ReactNode;
 	index?: number;
 	isFaq?: boolean;
+	selectedValue: string;
 }
 const AccordionItemComponent = (props: AccordionItemComponentProps) => {
-	const { title, children, index = 0, isFaq = false } = props;
+	const { title, children, index = 0, isFaq = false, selectedValue } = props;
+
+	const isOpened = !isFaq || Number(selectedValue) === index;
+
+	const getAccordionStyles = () =>
+		isOpened ? { borderWidth: "0px", bgColor: "surfaceGreen2" } : { borderWidth: "2px", borderColor: "allGreen2" };
+
 	return (
 		<Accordion.Item
 			key={index}
 			value={`${index}`}
 			px="16px"
 			py="12px"
-			bgColor="surfaceGreen2"
 			borderRadius="md"
-			borderWidth="0"
 			mt={index !== 0 ? "12px" : 0}
+			{...getAccordionStyles()}
 		>
-			<Accordion.ItemTrigger bgColor="surfaceGreen2" cursor="pointer">
+			<Accordion.ItemTrigger cursor="pointer" bgColor={isOpened ? "surfaceGreen2" : "white"}>
 				<Span flex="1" textStyle={isFaq ? "fixedRegularXs" : "regularMd"} fontStyle="italic">
 					{title}
 				</Span>
