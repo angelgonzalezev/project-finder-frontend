@@ -1,6 +1,13 @@
+"use client";
+
+import {
+	createCustomToaster,
+	CustomToasterComponent,
+} from "@/components/CustomToasterComponent/CustomToasterComponent";
+import { PlacementEnum } from "@/components/CustomToasterComponent/types";
 import { ProjectPosition } from "@/types/project";
 import { formatSkillList } from "@/utils/utils";
-import { Button, Stack, Text } from "@chakra-ui/react";
+import { Button, Stack, Text, useBreakpointValue } from "@chakra-ui/react";
 
 interface PositionComponentProps {
 	position: ProjectPosition;
@@ -8,6 +15,20 @@ interface PositionComponentProps {
 const PositionComponent = (props: PositionComponentProps) => {
 	const { position } = props;
 	const { skills } = position;
+
+	const toastPlacement = useBreakpointValue({
+		base: PlacementEnum.Top,
+		md: PlacementEnum.TopEnd,
+	});
+
+	const toastOffsets = { top: "80px", bottom: "20px", left: "20px", right: "20px" };
+
+	const toaster = createCustomToaster(toastPlacement, toastOffsets);
+
+	const handleOnApply = () => {
+		toaster.create({ title: "Aplicación enviada con éxito" });
+	};
+
 	return (
 		<Stack
 			flexDirection="column"
@@ -28,9 +49,10 @@ const PositionComponent = (props: PositionComponentProps) => {
 					{formatSkillList(skills)}
 				</Text>
 			</Stack>
-			<Button textStyle="regularSm" bgColor="allYellow6" color="allGrey9" borderRadius="md">
+			<Button textStyle="regularSm" bgColor="allYellow6" color="allGrey9" borderRadius="md" onClick={handleOnApply}>
 				Aplicar
 			</Button>
+			<CustomToasterComponent toasterInstance={toaster} />
 		</Stack>
 	);
 };
