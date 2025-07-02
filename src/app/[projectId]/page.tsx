@@ -7,13 +7,11 @@ import { notFound } from "next/navigation";
 import { getProjectDetails } from "@/services/projectsService";
 
 interface ProjectDetailsProps {
-	params: {
-		projectId: string;
-	};
+	params: Promise<{ projectId: string }>;
 }
 
 const ProjectDetails = async ({ params }: ProjectDetailsProps) => {
-	const { projectId } = params;
+	const { projectId } = await params;
 
 	const { success, data } = await getProjectDetails(projectId);
 

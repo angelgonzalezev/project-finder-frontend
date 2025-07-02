@@ -5,7 +5,7 @@ interface AccordionItemComponentProps {
 	children: React.ReactNode;
 	index?: number;
 	isFaq?: boolean;
-	selectedValue: string;
+	selectedValue?: string;
 }
 const AccordionItemComponent = (props: AccordionItemComponentProps) => {
 	const { title, children, index = 0, isFaq = false, selectedValue } = props;
