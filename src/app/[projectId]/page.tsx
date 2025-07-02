@@ -15,9 +15,9 @@ interface ProjectDetailsProps {
 const ProjectDetails = async ({ params }: ProjectDetailsProps) => {
 	const { projectId } = params;
 
-	const { success, data: projectDetails } = await getProjectDetails(projectId);
+	const { success, data } = await getProjectDetails(projectId);
 
-	if (!success) return notFound();
+	if (!success || !data) return notFound();
 
 	const {
 		title,
@@ -32,7 +32,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsProps) => {
 		startDate,
 		totalHours,
 		budget,
-	} = projectDetails;
+	} = data;
 
 	const estimatedBudget = budget.hourTo ? budget.hourTo * totalHours : budget.total;
 
